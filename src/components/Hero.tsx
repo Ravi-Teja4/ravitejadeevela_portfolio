@@ -41,9 +41,6 @@ const Hero = () => {
           {/* Content */}
           <div className="text-center lg:text-left animate-fade-in">
             <div className="mb-6">
-              <p className="text-white/90 text-lg font-medium mb-2">
-                👋 Hello, I'm
-              </p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 min-h-[1.2em]">
                 {displayedName}
                 <span className="animate-pulse">|</span>
