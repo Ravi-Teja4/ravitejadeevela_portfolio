@@ -1,8 +1,26 @@
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import profileImage from '@/assets/ravi-teja-profile.jpg';
 
 const Hero = () => {
+  const [displayedName, setDisplayedName] = useState('');
+  const fullName = 'Deevela Ravi Teja';
+  const typingSpeed = 150; // milliseconds per character
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= fullName.length) {
+        setDisplayedName(fullName.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, typingSpeed);
+
+    return () => clearInterval(typingInterval);
+  }, []);
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -26,8 +44,9 @@ const Hero = () => {
               <p className="text-white/90 text-lg font-medium mb-2">
                 👋 Hello, I'm
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
-                Deevela Ravi Teja
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 min-h-[1.2em]">
+                {displayedName}
+                <span className="animate-pulse">|</span>
               </h1>
               <p className="text-2xl sm:text-3xl text-white/90 font-semibold mb-6">
                 AWS Cloud & Linux Enthusiast
