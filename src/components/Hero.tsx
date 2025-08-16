@@ -70,7 +70,7 @@ const Hero = () => {
                 onClick={() => scrollToSection('projects')}
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-primary transition-all duration-300 font-semibold"
+                className="border-white text-white hover:bg-white hover:text-primary bg-transparent transition-all duration-300 font-semibold"
               >
                 View Projects
               </Button>
