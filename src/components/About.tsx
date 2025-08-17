@@ -1,28 +1,38 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { GraduationCap, Calendar } from 'lucide-react';
+import { useInView } from 'react-intersection-observer';
+import { useState, useEffect } from 'react';
 
 const About = () => {
+  const [educationRef, educationInView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
   const education = [
     {
       degree: "B.Tech – Electronics and Communication Engineering",
       institution: "S.R.K Institute of Technology",
       period: "2021–2025",
       grade: "CGPA: 8.0",
-      icon: "🎓"
+      icon: "🎓",
+      animation: "animate-slide-in-left"
     },
     {
       degree: "Intermediate – M.P.C",
       institution: "Vijaya Kranthi Junior College",
       period: "2019–2021",
       grade: "CGPA: 7.6",
-      icon: "📚"
+      icon: "📚",
+      animation: "animate-slide-in-right"
     },
     {
       degree: "SSC",
       institution: "S.S.Z.P.O.H School",
       period: "2018–2019",
       grade: "CGPA: 9.4",
-      icon: "🏫"
+      icon: "🏫",
+      animation: "animate-fade-in"
     }
   ];
 
@@ -66,7 +76,7 @@ const About = () => {
           </div>
 
           {/* Education Timeline */}
-          <div className="animate-scale-in">
+          <div ref={educationRef} className="relative">
             <div className="flex items-center mb-8">
               <GraduationCap className="w-8 h-8 text-primary mr-3" />
               <h3 className="text-2xl font-semibold text-foreground">
@@ -74,35 +84,56 @@ const About = () => {
               </h3>
             </div>
 
-            <div className="space-y-6">
+            <div className="relative">
               {education.map((edu, index) => (
-                <Card key={index} className="shadow-soft border-l-4 border-l-primary hover:shadow-medium transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-start">
-                      <div className="text-2xl mr-4 mt-1">
-                        {edu.icon}
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-foreground text-lg mb-2">
-                          {edu.degree}
-                        </h4>
-                        <p className="text-primary font-medium mb-2">
-                          {edu.institution}
-                        </p>
-                        <div className="flex items-center justify-between text-sm text-muted-foreground">
-                          <div className="flex items-center">
-                            <Calendar className="w-4 h-4 mr-1" />
-                            {edu.period}
+                <div
+                  key={index}
+                  className={`
+                    absolute w-full transition-all duration-1000 ease-out
+                    ${!educationInView 
+                      ? 'transform translate-y-0 opacity-70' 
+                      : `${index === 0 ? 'transform translate-y-0' : index === 1 ? 'transform translate-y-24' : 'transform translate-y-48'}`
+                    }
+                    ${educationInView 
+                      ? `${edu.animation} delay-${index * 200}` 
+                      : ''
+                    }
+                  `}
+                  style={{
+                    zIndex: 3 - index,
+                    animationDelay: educationInView ? `${index * 300}ms` : '0ms'
+                  }}
+                >
+                  <Card className="shadow-soft border-l-4 border-l-primary hover:shadow-medium transition-all duration-300 bg-card/95 backdrop-blur-sm">
+                    <CardContent className="p-6">
+                      <div className="flex items-start">
+                        <div className="text-2xl mr-4 mt-1">
+                          {edu.icon}
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-foreground text-lg mb-2">
+                            {edu.degree}
+                          </h4>
+                          <p className="text-primary font-medium mb-2">
+                            {edu.institution}
+                          </p>
+                          <div className="flex items-center justify-between text-sm text-muted-foreground">
+                            <div className="flex items-center">
+                              <Calendar className="w-4 h-4 mr-1" />
+                              {edu.period}
+                            </div>
+                            <span className="font-medium text-primary">
+                              {edu.grade}
+                            </span>
                           </div>
-                          <span className="font-medium text-primary">
-                            {edu.grade}
-                          </span>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </div>
               ))}
+              {/* Spacer to maintain proper height */}
+              <div className="h-[480px]"></div>
             </div>
           </div>
         </div>
