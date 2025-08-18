@@ -85,7 +85,8 @@ export default {
 				'bounce': 'var(--transition-bounce)'
 			},
 			fontFamily: {
-				'sans': ['Inter', 'Poppins', 'system-ui', 'sans-serif']
+				'sans': ['Libertinus Serif', 'serif'],
+				'serif': ['Libertinus Serif', 'serif']
 			},
 			keyframes: {
 				'accordion-down': {
