@@ -1,16 +1,34 @@
-import { useEffect } from 'react';
+
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Mail, Github, Linkedin } from 'lucide-react';
 import AOS from 'aos';
 import profileImage from '@/assets/ravi-teja-profile.jpg';
 
 const ModernHero = () => {
+  const [displayedName, setDisplayedName] = useState('');
+  const fullName = 'Deevela Ravi Teja';
+  const typingSpeed = 150; // milliseconds per character
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
       easing: 'ease-out-cubic',
     });
+
+    // Typing animation
+    let currentIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= fullName.length) {
+        setDisplayedName(fullName.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, typingSpeed);
+
+    return () => clearInterval(typingInterval);
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -30,11 +48,11 @@ const ModernHero = () => {
           {/* Text Content - Fade-in + pop-up animation */}
           <div className="text-center lg:text-left space-y-8">
             <div data-aos="fade-up" data-aos-delay="200">
-              <h1 className="text-5xl lg:text-7xl font-bold text-foreground mb-4">
-                Deevela{' '}
+              <h1 className="text-5xl lg:text-7xl font-bold text-foreground mb-4 min-h-[1.2em]">
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Ravi Teja
+                  {displayedName}
                 </span>
+                <span className="animate-pulse text-primary">|</span>
               </h1>
             </div>
             
