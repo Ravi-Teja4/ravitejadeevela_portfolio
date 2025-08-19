@@ -1,22 +1,33 @@
-import Navigation from '@/components/Navigation';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Experience from '@/components/Experience';
-import Skills from '@/components/Skills';
-import Projects from '@/components/Projects';
-import Contact from '@/components/Contact';
+import { useEffect } from 'react';
+import ModernNavigation from '@/components/modern/ModernNavigation';
+import ModernHero from '@/components/modern/ModernHero';
+import ModernAbout from '@/components/modern/ModernAbout';
+import ModernExperience from '@/components/modern/ModernExperience';
+import ModernSkills from '@/components/modern/ModernSkills';
+import ModernProjects from '@/components/modern/ModernProjects';
+import ModernContact from '@/components/modern/ModernContact';
+import AOS from 'aos';
 
 const Index = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out-cubic',
+      offset: 100
+    });
+  }, []);
+
   return (
     <div className="min-h-screen">
-      <Navigation />
-      <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Contact />
+      <ModernNavigation />
+      <main id="home">
+        <ModernHero />
+        <ModernAbout />
+        <ModernExperience />
+        <ModernSkills />
+        <ModernProjects />
+        <ModernContact />
       </main>
     </div>
   );
