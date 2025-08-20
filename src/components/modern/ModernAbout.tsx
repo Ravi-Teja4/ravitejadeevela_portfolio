@@ -52,25 +52,6 @@ const ModernAbout = () => {
               </p>
             </div>
 
-            {/* Key Highlights */}
-            <div className="grid sm:grid-cols-2 gap-4 mt-8">
-              <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm border border-border">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="font-medium text-foreground">AWS Certified</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm border border-border">
-                <div className="w-2 h-2 bg-accent rounded-full"></div>
-                <span className="font-medium text-foreground">Terraform Expert</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm border border-border">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="font-medium text-foreground">Cloud Security</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm border border-border">
-                <div className="w-2 h-2 bg-accent rounded-full"></div>
-                <span className="font-medium text-foreground">DevOps Pipeline</span>
-              </div>
-            </div>
           </div>
 
           {/* Education Timeline - Right-slide animation */}
