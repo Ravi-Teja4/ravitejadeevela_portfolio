@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Mail, Github, Linkedin } from 'lucide-react';
 import AOS from 'aos';
-import profileImage from '@/assets/ravi-teja-updated-photo.jpg';
+import profileImage from '@/assets/ravi-teja-latest-photo.jpg';
 
 const ModernHero = () => {
   const [displayedName, setDisplayedName] = useState('');
