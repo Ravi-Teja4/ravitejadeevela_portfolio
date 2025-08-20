@@ -1,30 +1,16 @@
-import { useState } from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 import { 
   Mail, 
   Phone, 
   MapPin, 
   Linkedin, 
   Github, 
-  Send,
-  MessageCircle,
   Calendar,
   ExternalLink
 } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
 
 const ModernContact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
   const contactInfo = [
     {
       icon: <Mail className="h-6 w-6" />,
@@ -56,31 +42,6 @@ const ModernContact = () => {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-    const mailtoLink = `mailto:deevelaraviteja@gmail.com?subject=${subject}&body=${body}`;
-    
-    window.open(mailtoLink);
-    
-    toast({
-      title: "Message Prepared!",
-      description: "Your email client should open with the message ready to send.",
-    });
-
-    setFormData({ name: '', email: '', message: '' });
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   return (
     <section id="contact" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-6">
@@ -95,79 +56,7 @@ const ModernContact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Form - Fade-in + pop-up animation */}
-          <div data-aos="fade-up" data-aos-delay="200">
-            <Card className="h-full shadow-lg border-0 bg-white">
-              <CardHeader className="pb-4">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-primary/10 rounded-xl text-primary">
-                    <MessageCircle className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-foreground">Send a Message</h3>
-                </div>
-                <p className="text-muted-foreground">
-                  Fill out the form below and I'll get back to you as soon as possible.
-                </p>
-              </CardHeader>
-              
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-foreground font-medium">Name *</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="border-border focus:border-primary transition-colors duration-300"
-                        placeholder="Your full name"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-foreground font-medium">Email *</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="border-border focus:border-primary transition-colors duration-300"
-                        placeholder="your.email@example.com"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-foreground font-medium">Message *</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={6}
-                      className="border-border focus:border-primary transition-colors duration-300 resize-none"
-                      placeholder="Tell me about your project or how I can help you..."
-                    />
-                  </div>
-                  
-                  <Button 
-                    type="submit" 
-                    size="lg"
-                    className="w-full bg-primary hover:bg-primary-dark text-primary-foreground font-semibold py-3 transition-all duration-300 hover:shadow-lg"
-                  >
-                    <Send className="h-5 w-5 mr-2" />
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
-
+        <div className="max-w-4xl mx-auto">
           {/* Contact Information & Social Links - Left-slide animation */}
           <div data-aos="fade-left" data-aos-delay="400" className="space-y-8">
             {/* Contact Details */}
