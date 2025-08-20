@@ -132,41 +132,6 @@ const ModernSkills = () => {
           ))}
         </div>
 
-        {/* Key Highlights */}
-        <div data-aos="fade-up" data-aos-delay="800" className="mb-16">
-          <h3 className="text-2xl font-semibold text-foreground text-center mb-8">Core Expertise</h3>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <Card className="text-center p-8 hover:shadow-xl transition-all duration-300 group border-t-4 border-t-primary">
-              <div className="inline-flex p-4 bg-primary/10 rounded-full text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                <Cloud className="h-8 w-8" />
-              </div>
-              <h4 className="text-xl font-semibold text-foreground mb-3">Cloud Architecture</h4>
-              <p className="text-muted-foreground">
-                Designing scalable, secure, and cost-effective cloud solutions using AWS services
-              </p>
-            </Card>
-
-            <Card className="text-center p-8 hover:shadow-xl transition-all duration-300 group border-t-4 border-t-accent">
-              <div className="inline-flex p-4 bg-accent/10 rounded-full text-accent mb-4 group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300">
-                <Code className="h-8 w-8" />
-              </div>
-              <h4 className="text-xl font-semibold text-foreground mb-3">Infrastructure as Code</h4>
-              <p className="text-muted-foreground">
-                Automating infrastructure deployment and management using Terraform and best practices
-              </p>
-            </Card>
-
-            <Card className="text-center p-8 hover:shadow-xl transition-all duration-300 group border-t-4 border-t-primary">
-              <div className="inline-flex p-4 bg-primary/10 rounded-full text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                <Lock className="h-8 w-8" />
-              </div>
-              <h4 className="text-xl font-semibold text-foreground mb-3">Cloud Security</h4>
-              <p className="text-muted-foreground">
-                Implementing robust security measures, IAM policies, and compliance frameworks
-              </p>
-            </Card>
-          </div>
-        </div>
 
         {/* Certifications */}
         <div data-aos="fade-up" data-aos-delay="1000" className="max-w-2xl mx-auto">
