@@ -26,6 +26,7 @@ const ModernNavigation = () => {
     { name: 'Experience', id: 'experience' },
     { name: 'Skills', id: 'skills' },
     { name: 'Projects', id: 'projects' },
+    { name: 'Content', id: 'content-creation' },
     { name: 'Contact', id: 'contact' }
   ];
 

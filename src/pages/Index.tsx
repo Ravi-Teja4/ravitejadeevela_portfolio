@@ -5,6 +5,7 @@ import ModernAbout from '@/components/modern/ModernAbout';
 import ModernExperience from '@/components/modern/ModernExperience';
 import ModernSkills from '@/components/modern/ModernSkills';
 import ModernProjects from '@/components/modern/ModernProjects';
+import ModernContentCreation from '@/components/modern/ModernContentCreation';
 import ModernContact from '@/components/modern/ModernContact';
 import AOS from 'aos';
 
@@ -23,11 +24,12 @@ const Index = () => {
       <ModernNavigation />
       <main id="home">
         <ModernHero />
-        <ModernAbout />
-        <ModernExperience />
-        <ModernSkills />
-        <ModernProjects />
-        <ModernContact />
+      <ModernAbout />
+      <ModernExperience />
+      <ModernSkills />
+      <ModernProjects />
+      <ModernContentCreation />
+      <ModernContact />
       </main>
     </div>
   );
