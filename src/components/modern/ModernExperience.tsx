@@ -38,7 +38,7 @@ const ModernExperience = () => {
         {/* Section Header */}
         <div data-aos="fade-up" className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Professional Experience
+            Internship Experience
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
