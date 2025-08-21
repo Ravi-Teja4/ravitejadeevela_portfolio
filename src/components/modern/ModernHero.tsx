@@ -48,7 +48,7 @@ const ModernHero = () => {
           {/* Text Content - Fade-in + pop-up animation */}
           <div className="text-center lg:text-left space-y-8">
             <div data-aos="fade-up" data-aos-delay="200">
-              <h1 className="text-5xl lg:text-7xl font-bold text-foreground mb-4 min-h-[1.2em]">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 min-h-[1.2em] whitespace-nowrap">
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   {displayedName}
                 </span>
