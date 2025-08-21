@@ -74,9 +74,7 @@ const ModernSkills = () => {
   ];
 
   const certifications = [
-    { name: "AWS Solutions Architect", status: "In Progress", color: "bg-blue-500" },
-    { name: "AWS DevOps Engineer", status: "Planned", color: "bg-green-500" },
-    { name: "Terraform Associate", status: "In Progress", color: "bg-purple-500" }
+    { name: "AWS Solutions Architect", status: "In Progress", color: "bg-blue-500" }
   ];
 
   return (
