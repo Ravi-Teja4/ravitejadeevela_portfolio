@@ -137,14 +137,10 @@ const ModernExperience = () => {
         </div>
 
         {/* Achievement Summary */}
-        <div data-aos="fade-up" data-aos-delay="800" className="mt-16 grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div data-aos="fade-up" data-aos-delay="800" className="mt-16 grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
           <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 border-t-4 border-t-primary">
             <div className="text-3xl font-bold text-primary mb-2">25%</div>
             <div className="text-sm text-muted-foreground">Cost Reduction</div>
-          </Card>
-          <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 border-t-4 border-t-accent">
-            <div className="text-3xl font-bold text-accent mb-2">2+</div>
-            <div className="text-sm text-muted-foreground">Years Experience</div>
           </Card>
           <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 border-t-4 border-t-primary">
             <div className="text-3xl font-bold text-primary mb-2">10+</div>
