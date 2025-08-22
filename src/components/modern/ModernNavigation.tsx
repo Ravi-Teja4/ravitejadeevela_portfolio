@@ -63,7 +63,7 @@ const ModernNavigation = () => {
               variant="outline"
               size="sm"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-              onClick={() => window.open('mailto:deevelaraviteja@gmail.com?subject=Request%20Resume')}
+              onClick={() => window.open('https://red-tani-80.tiiny.site', '_blank')}
             >
               <Download className="h-4 w-4 mr-2" />
               Resume
@@ -102,7 +102,7 @@ const ModernNavigation = () => {
                 size="sm"
                 className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 mt-4"
                 onClick={() => {
-                  window.open('mailto:deevelaraviteja@gmail.com?subject=Request%20Resume');
+                  window.open('https://red-tani-80.tiiny.site', '_blank');
                   setIsMobileMenuOpen(false);
                 }}
               >
