@@ -120,23 +120,15 @@ const ModernProjects = () => {
                   </div>
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex gap-2 pt-4 border-t border-border/50">
+                {/* Action Button */}
+                <div className="flex pt-4 border-t border-border/50">
                   <Button 
                     variant="outline" 
                     size="sm" 
-                    className="flex-1 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                    className="w-full border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                   >
                     <ExternalLink className="h-4 w-4 mr-2" />
-                    Live Demo
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="flex-1 border-accent/30 text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-                  >
-                    <Github className="h-4 w-4 mr-2" />
-                    Code
+                    Visit Project
                   </Button>
                 </div>
               </CardContent>
