@@ -84,10 +84,11 @@ export default {
 				'smooth': 'var(--transition-smooth)',
 				'bounce': 'var(--transition-bounce)'
 			},
-			fontFamily: {
-				'sans': ['Libertinus Serif', 'serif'],
-				'serif': ['Libertinus Serif', 'serif']
-			},
+		fontFamily: {
+			'sans': ['Inter', 'sans-serif'],
+			'heading': ['Poppins', 'sans-serif'],
+			'mono': ['Fira Code', 'monospace']
+		},
 			keyframes: {
 				'accordion-down': {
 					from: {
