@@ -17,8 +17,7 @@ const ModernProjects = () => {
       ],
       icon: <Database className="h-8 w-8" />,
       gradient: "from-blue-500 to-blue-600",
-      delay: 0,
-      link: null
+      delay: 0
     },
     {
       title: "AWS Serverless Web Application",
@@ -32,8 +31,7 @@ const ModernProjects = () => {
       ],
       icon: <Code className="h-8 w-8" />,
       gradient: "from-green-500 to-green-600",
-      delay: 200,
-      link: "https://github.com/Ravi-Teja4/AWS-Serverless-Project"
+      delay: 200
     },
     {
       title: "3-Tier Architecture on AWS",
@@ -47,8 +45,7 @@ const ModernProjects = () => {
       ],
       icon: <Cloud className="h-8 w-8" />,
       gradient: "from-purple-500 to-purple-600",
-      delay: 400,
-      link: null
+      delay: 400
     }
   ];
 
@@ -129,8 +126,6 @@ const ModernProjects = () => {
                     variant="outline" 
                     size="sm" 
                     className="w-full border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                    onClick={() => project.link && window.open(project.link, '_blank')}
-                    disabled={!project.link}
                   >
                     <ExternalLink className="h-4 w-4 mr-2" />
                     Visit Project
