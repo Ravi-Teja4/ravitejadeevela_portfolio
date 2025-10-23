@@ -121,7 +121,7 @@ All colors MUST be HSL.
 
 body {
   @apply bg-background text-foreground;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Caudex', serif;
 }
 
 html {
@@ -129,7 +129,7 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Caudex', serif;
 }
 
 code, pre, kbd, samp {
