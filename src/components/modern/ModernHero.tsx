@@ -58,10 +58,10 @@ const ModernHero = () => {
             
             <div data-aos="fade-up" data-aos-delay="400">
               <p className="text-xl lg:text-2xl text-muted-foreground font-medium mb-2">
-                AWS Cloud & Linux Enthusiast
+                AWS Cloud & DevOps Enthusiast
               </p>
               <p className="text-lg text-muted-foreground max-w-2xl">
-                Building scalable, secure, and automated cloud solutions with AWS & Terraform
+                Building scalable, secure, and automated cloud solutions using AWS, Terraform, Docker, and Linux.
               </p>
             </div>
 
