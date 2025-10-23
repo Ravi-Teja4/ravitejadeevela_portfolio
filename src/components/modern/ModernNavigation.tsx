@@ -37,25 +37,25 @@ const ModernNavigation = () => {
         : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div 
-            className="font-bold text-xl text-foreground cursor-pointer hover:text-primary transition-colors duration-300"
+            className="font-bold text-2xl text-foreground cursor-pointer hover:text-primary transition-colors duration-300 shrink-0"
             onClick={() => scrollToSection('home')}
           >
             Ravi Teja
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium relative group"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium relative group whitespace-nowrap"
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
             
