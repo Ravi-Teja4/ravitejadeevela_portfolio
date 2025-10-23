@@ -18,58 +18,79 @@ const ModernSkills = () => {
     {
       title: "Cloud Platforms & Services",
       icon: <Cloud className="h-8 w-8" />,
-      skills: ["EC2", "S3", "RDS", "Lambda", "CloudFront", "Route 53", "IAM", "CloudTrail"],
-      color: "bg-blue-500",
+      skills: ["EC2", "S3", "RDS", "Lambda", "CloudFront", "CloudWatch", "Route 53", "IAM", "Auto Scaling", "ALB", "CloudTrail", "Elastic Beanstalk", "EBS", "VPC"],
+      color: "bg-primary",
       delay: 0
     },
     {
-      title: "Infrastructure as Code",
-      icon: <Code className="h-8 w-8" />,
-      skills: ["Terraform", "CloudFormation", "Ansible"],
-      color: "bg-green-500",
+      title: "Version Control",
+      icon: <GitBranch className="h-8 w-8" />,
+      skills: ["Git", "GitHub"],
+      color: "bg-accent",
       delay: 100
     },
     {
-      title: "Machine Learning Services",
-      icon: <Cpu className="h-8 w-8" />,
-      skills: ["Rekognition", "Comprehend", "Textract", "Lex", "Transcribe"],
-      color: "bg-purple-500",
+      title: "CI/CD",
+      icon: <Code className="h-8 w-8" />,
+      skills: ["GitHub Actions"],
+      color: "bg-primary",
       delay: 200
+    },
+    {
+      title: "Containers & Orchestration",
+      icon: <Server className="h-8 w-8" />,
+      skills: ["Docker", "Kubernetes"],
+      color: "bg-accent",
+      delay: 300
+    },
+    {
+      title: "Application Servers",
+      icon: <Server className="h-8 w-8" />,
+      skills: ["Apache Tomcat", "Nginx"],
+      color: "bg-primary",
+      delay: 400
+    },
+    {
+      title: "Monitoring & Observability",
+      icon: <Monitor className="h-8 w-8" />,
+      skills: ["AWS CloudWatch", "Prometheus", "Grafana"],
+      color: "bg-accent",
+      delay: 500
+    },
+    {
+      title: "Infrastructure as Code (IaC)",
+      icon: <Code className="h-8 w-8" />,
+      skills: ["Terraform"],
+      color: "bg-primary",
+      delay: 600
     },
     {
       title: "Databases",
       icon: <Database className="h-8 w-8" />,
-      skills: ["SQL", "DynamoDB", "RDS Multi-AZ", "PostgreSQL", "MySQL"],
-      color: "bg-orange-500",
-      delay: 300
+      skills: ["SQL", "Amazon DynamoDB"],
+      color: "bg-accent",
+      delay: 700
     },
     {
       title: "Security",
       icon: <Shield className="h-8 w-8" />,
-      skills: ["WAF", "ACL", "Security Groups", "IAM Policies", "VPC"],
-      color: "bg-red-500",
-      delay: 400
+      skills: ["Web Application Firewall (WAF)", "ACL", "Security Groups", "IAM Policies"],
+      color: "bg-primary",
+      delay: 800
     },
     {
-      title: "DevOps & Tools",
-      icon: <GitBranch className="h-8 w-8" />,
-      skills: ["Docker", "Kubernetes", "Jenkins", "Git", "CI/CD"],
-      color: "bg-indigo-500",
-      delay: 500
-    },
-    {
-      title: "Programming & Scripting",
+      title: "Scripting",
       icon: <Terminal className="h-8 w-8" />,
-      skills: ["Python", "Bash", "PowerShell", "JavaScript"],
-      color: "bg-yellow-500",
-      delay: 600
+      skills: ["Python"],
+      color: "bg-accent",
+      delay: 900
     },
     {
       title: "Operating Systems",
       icon: <Monitor className="h-8 w-8" />,
-      skills: ["Linux", "Windows", "Ubuntu", "CentOS", "Amazon Linux"],
-      color: "bg-teal-500",
-      delay: 700
+      skills: ["Linux", "Windows"],
+      color: "bg-primary",
+      delay: 1000
     }
   ];
 
@@ -83,7 +104,7 @@ const ModernSkills = () => {
         {/* Section Header */}
         <div data-aos="fade-up" className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Technical Skills
+            Technologies
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8"></div>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -96,19 +117,19 @@ const ModernSkills = () => {
           {skillCategories.map((category, index) => (
             <Card 
               key={index}
-              data-aos="zoom-in"
+              data-aos="fade-up"
               data-aos-delay={category.delay}
-              className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white overflow-hidden relative"
+              className="group hover:shadow-2xl transition-all duration-500 border border-border/50 bg-card overflow-hidden relative"
             >
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <CardContent className="p-6 relative z-10">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className={`p-3 rounded-xl text-white ${category.color} group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`p-3 rounded-xl text-primary-foreground ${category.color} group-hover:scale-110 transition-transform duration-300`}>
                     {category.icon}
                   </div>
-                  <h3 className="font-semibold text-foreground text-lg group-hover:text-primary transition-colors duration-300">
+                  <h3 className="font-bold text-foreground text-lg group-hover:text-primary transition-colors duration-300">
                     {category.title}
                   </h3>
                 </div>
