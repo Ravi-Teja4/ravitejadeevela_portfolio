@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const ModernExperience = () => {
   const experiences = [
@@ -52,21 +53,40 @@ const ModernExperience = () => {
           <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-accent transform -translate-x-1/2"></div>
 
           {experiences.map((exp, index) => (
-            <div
+            <motion.div
               key={index}
               className={`relative mb-12 last:mb-0 ${
                 index % 2 === 0 ? 'lg:pr-1/2 lg:text-right' : 'lg:pl-1/2 lg:ml-auto'
               }`}
-              data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-              data-aos-delay={200 + index * 200}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.2,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
             >
               {/* Timeline dot - centered */}
-              <div className="hidden lg:block absolute top-8 left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-lg z-10 transform -translate-x-1/2"></div>
+              <motion.div 
+                className="hidden lg:block absolute top-8 left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-lg z-10 transform -translate-x-1/2"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.2 + 0.3 }}
+              />
 
               {/* Experience Card */}
-              <Card className={`relative overflow-hidden hover:shadow-2xl transition-all duration-500 group ${
-                index % 2 === 0 ? 'lg:mr-8' : 'lg:ml-8'
-              }`}>
+              <motion.div
+                whileHover={{ 
+                  scale: 1.02,
+                  filter: "brightness(1.05)",
+                  transition: { duration: 0.2 }
+                }}
+              >
+                <Card className={`relative overflow-hidden shadow-lg transition-shadow duration-300 group ${
+                  index % 2 === 0 ? 'lg:mr-8' : 'lg:ml-8'
+                }`}>
                 {/* Card gradient border */}
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
@@ -132,21 +152,32 @@ const ModernExperience = () => {
                   </div>
                 </CardContent>
               </Card>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
 
         {/* Achievement Summary */}
-        <div data-aos="fade-up" data-aos-delay="800" className="mt-16 grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 border-t-4 border-t-primary">
-            <div className="text-3xl font-bold text-primary mb-2">25%</div>
-            <div className="text-sm text-muted-foreground">Cost Reduction</div>
-          </Card>
-          <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 border-t-4 border-t-primary">
-            <div className="text-3xl font-bold text-primary mb-2">10+</div>
-            <div className="text-sm text-muted-foreground">AWS Services</div>
-          </Card>
-        </div>
+        <motion.div 
+          className="mt-16 grid md:grid-cols-2 gap-6 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <motion.div whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}>
+            <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 border-t-4 border-t-primary">
+              <div className="text-3xl font-bold text-primary mb-2">25%</div>
+              <div className="text-sm text-muted-foreground">Cost Reduction</div>
+            </Card>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}>
+            <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 border-t-4 border-t-primary">
+              <div className="text-3xl font-bold text-primary mb-2">10+</div>
+              <div className="text-sm text-muted-foreground">AWS Services</div>
+            </Card>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
