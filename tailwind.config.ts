@@ -85,9 +85,9 @@ export default {
 				'bounce': 'var(--transition-bounce)'
 			},
 		fontFamily: {
-			'sans': ['Caudex', 'serif'],
-			'heading': ['Caudex', 'serif'],
-			'mono': ['Fira Code', 'monospace']
+			'sans': ['Inter', 'sans-serif'],
+			'heading': ['Poppins', 'sans-serif'],
+			'body': ['Inter', 'sans-serif']
 		},
 			keyframes: {
 				'accordion-down': {

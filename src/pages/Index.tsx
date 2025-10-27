@@ -7,6 +7,7 @@ import ModernSkills from '@/components/modern/ModernSkills';
 import ModernProjects from '@/components/modern/ModernProjects';
 import ModernContentCreation from '@/components/modern/ModernContentCreation';
 import ModernContact from '@/components/modern/ModernContact';
+import ModernFooter from '@/components/modern/ModernFooter';
 import AOS from 'aos';
 
 const Index = () => {
@@ -31,6 +32,7 @@ const Index = () => {
       <ModernContentCreation />
       <ModernContact />
       </main>
+      <ModernFooter />
     </div>
   );
 };
