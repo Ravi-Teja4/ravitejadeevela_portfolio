@@ -1,0 +1,118 @@
+name: React App CI/CD - SonarQube + Trivy + Docker + ECR + EC2 Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: CI - Build React App, Scan, and Push to ECR
+    runs-on: ubuntu-latest
+
+    env:
+      AWS_REGION: us-east-1
+      ECR_REPOSITORY: my-react-portfolio   # 🔹 Replace with your ECR repo name
+      IMAGE_TAG: latest
+
+    steps:
+      # 🧩 Step 1: Checkout Repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 🧰 Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      # 📦 Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 🏗️ Step 4: Build React App
+      - name: Build React App
+        run: npm run build
+
+      # 🧪 Step 5: SonarQube Analysis
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v3
+        with:
+          projectBaseDir: .
+          args: >
+            -Dsonar.projectKey=my-react-portfolio
+            -Dsonar.organization=my-org
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+      # 🔍 Step 6: Trivy Scan for Vulnerabilities
+      - name: Trivy FS Scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          ignore-unfixed: true
+          format: 'table'
+          exit-code: '0'
+          vuln-type: 'os,library'
+
+      # 🔐 Step 7: Configure AWS Credentials (OIDC Recommended)
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/github-actions-role  # 🔹 Replace
+          aws-region: ${{ env.AWS_REGION }}
+
+      # 🔑 Step 8: Login to Amazon ECR
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      # 🛠️ Step 9: Build Docker Image (for React app)
+      - name: Build Docker image
+        run: |
+          docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
+
+      # 🏷️ Step 10: Tag Docker Image
+      - name: Tag Docker image
+        run: |
+          docker tag $ECR_REPOSITORY:$IMAGE_TAG ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG
+
+      # 📦 Step 11: Push Docker Image to ECR
+      - name: Push Docker image to ECR
+        run: |
+          docker push ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG
+
+      # 🖊️ Step 12: Print Image URI
+      - name: Print Image URI
+        run: |
+          echo "✅ Image pushed: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG"
+
+  deploy:
+    name: CD - Deploy React Container to EC2
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      # ⚙️ Step 1: Deploy on EC2
+      - name: SSH and Deploy
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            echo "🛠️ Pulling latest image from ECR..."
+            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com
+
+            echo "🧹 Stopping old container (if exists)..."
+            docker stop react-portfolio || true && docker rm react-portfolio || true
+
+            echo "📦 Pulling new image..."
+            docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-react-portfolio:latest
+
+            echo "🚀 Running new container..."
+            docker run -d -p 80:80 --name react-portfolio ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-react-portfolio:latest
+
+            echo "✅ React App Deployed Successfully!"
