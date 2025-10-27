@@ -58,14 +58,15 @@ const ModernExperience = () => {
               className={`relative mb-12 last:mb-0 ${
                 index % 2 === 0 ? 'lg:pr-1/2 lg:text-right' : 'lg:pl-1/2 lg:ml-auto'
               }`}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "-80px" }}
               transition={{
-                duration: 0.6,
+                duration: 0.8,
                 delay: index * 0.2,
-                ease: [0.25, 0.46, 0.45, 0.94],
+                ease: "easeOut",
               }}
+              style={{ willChange: 'transform, opacity' }}
             >
               {/* Timeline dot - centered */}
               <motion.div 
@@ -73,18 +74,19 @@ const ModernExperience = () => {
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.2 + 0.3 }}
+                transition={{ duration: 0.4, delay: index * 0.2 + 0.2, ease: "easeOut" }}
               />
 
               {/* Experience Card */}
               <motion.div
                 whileHover={{ 
-                  scale: 1.02,
-                  filter: "brightness(1.05)",
-                  transition: { duration: 0.2 }
+                  scale: 1.03,
+                  y: -8,
+                  transition: { duration: 0.3, ease: "easeOut" }
                 }}
+                style={{ willChange: 'transform' }}
               >
-                <Card className={`relative overflow-hidden shadow-lg transition-shadow duration-300 group ${
+                <Card className={`relative overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 group ${
                   index % 2 === 0 ? 'lg:mr-8' : 'lg:ml-8'
                 }`}>
                 {/* Card gradient border */}
@@ -160,19 +162,33 @@ const ModernExperience = () => {
         {/* Achievement Summary */}
         <motion.div 
           className="mt-16 grid md:grid-cols-2 gap-6 max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
         >
-          <motion.div whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}>
-            <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 border-t-4 border-t-primary">
+          <motion.div 
+            whileHover={{ 
+              scale: 1.03, 
+              y: -4,
+              transition: { duration: 0.3, ease: "easeOut" } 
+            }}
+            style={{ willChange: 'transform' }}
+          >
+            <Card className="text-center p-6 shadow-md hover:shadow-xl transition-shadow duration-300 border-t-4 border-t-primary">
               <div className="text-3xl font-bold text-primary mb-2">25%</div>
               <div className="text-sm text-muted-foreground">Cost Reduction</div>
             </Card>
           </motion.div>
-          <motion.div whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}>
-            <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 border-t-4 border-t-primary">
+          <motion.div 
+            whileHover={{ 
+              scale: 1.03, 
+              y: -4,
+              transition: { duration: 0.3, ease: "easeOut" } 
+            }}
+            style={{ willChange: 'transform' }}
+          >
+            <Card className="text-center p-6 shadow-md hover:shadow-xl transition-shadow duration-300 border-t-4 border-t-primary">
               <div className="text-3xl font-bold text-primary mb-2">10+</div>
               <div className="text-sm text-muted-foreground">AWS Services</div>
             </Card>
