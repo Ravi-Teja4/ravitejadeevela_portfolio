@@ -5,8 +5,8 @@ on:
     branches:
       - main
   workflow_dispatch:
-
 # ✅ Required for OIDC authentication to AWS
+
 permissions:
   id-token: write
   contents: read
@@ -14,17 +14,20 @@ permissions:
 jobs:
   build:
     name: CI - Build React App, Scan, and Push to ECR
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
 
     env:
       AWS_REGION: us-east-1
-      ECR_REPOSITORY: my-react-portfolio     # 🔹 Replace with your ECR repository name
+      ECR_REPOSITORY: my-react-portfolio # 🔹 Replace with your ECR repository name
+
       IMAGE_TAG: latest
 
     steps:
       # 🧩 Step 1: Checkout repository
+
       - name: Checkout repository
         uses: actions/checkout@v4
+
 
       # 🧰 Step 2: Set up Node.js
       - name: Set up Node.js
@@ -32,13 +35,16 @@ jobs:
         with:
           node-version: '18'
 
+
       # 📦 Step 3: Install dependencies
       - name: Install dependencies
         run: npm ci
 
+
       # 🏗️ Step 4: Build React App
       - name: Build React App
         run: npm run build
+
 
       # 🧪 Step 5: SonarQube Analysis
       - name: SonarQube Scan
@@ -46,11 +52,14 @@ jobs:
         with:
           projectBaseDir: .
           args: >
+
             -Dsonar.projectKey=my-react-portfolio
             -Dsonar.organization=my-org
+
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
 
       # 🔍 Step 6: Trivy Scan for Vulnerabilities
       - name: Trivy FS Scan
@@ -62,45 +71,61 @@ jobs:
           exit-code: '0'
           vuln-type: 'os,library'
 
+
       # 🔐 Step 7: Configure AWS Credentials using OIDC
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::362324939518:role/github-actions-role   # ✅ Replace
+          role-to-assume: arn:aws:iam::362324939518:role/github-actions-role # ✅ Replace
+
           aws-region: ${{ env.AWS_REGION }}
+
 
       # 🔑 Step 8: Login to Amazon ECR
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
+
       # 🛠️ Step 9: Build Docker Image
       - name: Build Docker image
         run: |
+
           docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
+
+
 
       # 🏷️ Step 10: Tag Docker Image
       - name: Tag Docker image
         run: |
+
           docker tag $ECR_REPOSITORY:$IMAGE_TAG ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG
+
+
 
       # 📦 Step 11: Push Docker Image to ECR
       - name: Push Docker image to ECR
         run: |
+
           docker push ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG
+
+
 
       # 🖊️ Step 12: Print Image URI
       - name: Print Image URI
         run: |
+
           echo "✅ Image pushed: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG"
+
 
   deploy:
     name: CD - Deploy React Container to EC2
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
 
     steps:
       # ⚙️ Step 1: SSH into EC2 and Deploy
+
       - name: SSH and Deploy
         uses: appleboy/ssh-action@v1.2.0
         with:
@@ -108,6 +133,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
+
             echo "🛠️ Pulling latest image from ECR..."
             aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com
             
@@ -120,4 +146,4 @@ jobs:
             echo "🚀 Running new container..."
             docker run -d -p 80:80 --name react-portfolio ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-react-portfolio:latest
             
-            echo "✅ React App Deployed Successfully!"
+            echo "✅ React App Deployed Successfully!"
