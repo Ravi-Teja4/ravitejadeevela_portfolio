@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Mail, Github, Linkedin, ArrowRight } from 'lucide-react';
 import profileImage from '@/assets/ravi-teja-latest-photo.jpg';
+import devopsBg from '@/assets/devops-infinity-bg.png';
 
 const ModernHero = () => {
   const [displayedName, setDisplayedName] = useState('');
@@ -31,6 +32,28 @@ const ModernHero = () => {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#E0F2FE] via-background to-background/50 pt-20">
       {/* Animated cloud background elements */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* DevOps Infinity Loop Background */}
+        <motion.div 
+          className="absolute right-0 bottom-0 lg:right-10 lg:bottom-10 w-[500px] h-[300px] lg:w-[700px] lg:h-[420px] opacity-20 pointer-events-none"
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ 
+            opacity: [0.15, 0.25, 0.15],
+            x: 0
+          }}
+          transition={{ 
+            opacity: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+            x: { duration: 1.2, ease: "easeOut" }
+          }}
+          style={{ filter: 'blur(2px)' }}
+        >
+          <img
+            src={devopsBg}
+            alt=""
+            className="w-full h-full object-contain"
+            style={{ mixBlendMode: 'luminosity' }}
+          />
+        </motion.div>
+
         <motion.div 
           className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
           animate={{ 
