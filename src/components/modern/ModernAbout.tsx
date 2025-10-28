@@ -27,30 +27,30 @@ const ModernAbout = () => {
   ];
 
   return (
-    <section id="about" className="py-24 bg-gradient-to-b from-background via-background to-muted/30">
-      <div className="container mx-auto px-6 max-w-7xl">
+    <section id="about" className="py-20 bg-secondary/30">
+      <div className="container mx-auto px-6">
         {/* Section Header - Pop-down animation */}
-        <div data-aos="fade-down" className="text-center mb-20">
-          <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-4 tracking-tight">
+        <div data-aos="fade-down" className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
             About Me
           </h2>
-          <div className="w-24 h-1.5 bg-gradient-primary mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Bio Text - Left-slide animation */}
-          <div data-aos="fade-right" data-aos-delay="200" className="space-y-8">
-            <div className="space-y-6">
-              <p className="text-lg text-foreground/80 leading-[1.8] font-normal">
+          <div data-aos="fade-right" data-aos-delay="200" className="space-y-6">
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 I'm an enthusiastic and detail-oriented AWS Cloud & DevOps enthusiast with hands-on experience gained through academic projects, a professional internship, and freelance work.
               </p>
-              <p className="text-lg text-foreground/80 leading-[1.8] font-normal">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 I specialize in AWS services such as EC2, S3, RDS, Lambda, CloudFront, Route 53, and AWS Machine Learning tools like Rekognition, Comprehend, Textract, Lex, and Transcribe.
               </p>
-              <p className="text-lg text-foreground/80 leading-[1.8] font-normal">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 Skilled in Infrastructure as Code (IaC) using Terraform, CI/CD automation with GitHub Actions, containerization with Docker and Kubernetes, and serverless deployments.
               </p>
-              <p className="text-lg text-foreground/80 leading-[1.8] font-normal">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 I'm passionate about automation, cloud security, and observability, with a strong foundation in Linux administration and database management.
               </p>
             </div>
@@ -58,12 +58,12 @@ const ModernAbout = () => {
           </div>
 
           {/* Education Timeline - Right-slide animation */}
-          <div data-aos="fade-left" data-aos-delay="400" className="space-y-8">
-            <h3 className="text-3xl font-bold text-foreground mb-10 tracking-tight">Education Timeline</h3>
+          <div data-aos="fade-left" data-aos-delay="400" className="space-y-6">
+            <h3 className="text-2xl font-semibold text-foreground mb-8">Education Timeline</h3>
             
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-secondary"></div>
+              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-accent"></div>
               
               {education.map((edu, index) => (
                 <div 
@@ -73,24 +73,24 @@ const ModernAbout = () => {
                   className="relative mb-8 last:mb-0"
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-4 top-6 w-4 h-4 bg-primary rounded-full border-4 border-card shadow-medium z-10"></div>
+                  <div className="absolute left-4 top-6 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-md z-10"></div>
                   
                   {/* Education card */}
-                  <Card className="ml-16 hover:shadow-large hover:scale-[1.02] transition-all duration-300 border-l-4 border-l-primary rounded-xl bg-card shadow-medium">
-                    <CardContent className="p-7">
-                      <div className="flex items-start gap-5">
-                        <div className="p-3 bg-primary/10 rounded-xl text-primary shrink-0">
+                  <Card className="ml-16 hover:shadow-lg transition-all duration-300 border-l-4 border-l-primary">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="p-2 bg-primary/10 rounded-lg text-primary">
                           {edu.icon}
                         </div>
-                        <div className="flex-1 space-y-2">
-                          <h4 className="font-semibold text-foreground text-lg leading-tight">
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-foreground text-lg mb-2">
                             {edu.degree}
                           </h4>
-                          <p className="text-primary font-medium text-base">
+                          <p className="text-primary font-medium mb-1">
                             {edu.institution}
                           </p>
-                          <div className="flex items-center gap-4 text-sm text-muted-foreground pt-1">
-                            <span className="font-normal">{edu.period}</span>
+                          <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                            <span>{edu.period}</span>
                             <span className="text-accent font-medium">{edu.grade}</span>
                           </div>
                         </div>

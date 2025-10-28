@@ -12,35 +12,33 @@ Color Palette: AWS Blue (#2563EB), Sky Blue (#38BDF8), Cloud White (#F8FAFC)
 
 @layer base {
   :root {
-    /* Base Colors - Soft White-Gray Background #F9FAFB */
-    --background: 210 20% 98%;
-    --foreground: 217 33% 17%; /* #111827 - Dark gray */
+    /* Base Colors - Cloud White Background */
+    --background: 210 40% 98%;
+    --foreground: 215 25% 14%;
 
-    /* Pure White Cards */
     --card: 0 0% 100%;
-    --card-foreground: 217 33% 17%;
+    --card-foreground: 215 25% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 217 33% 17%;
+    --popover-foreground: 215 25% 14%;
 
-    /* AWS Blue Primary - #2563EB */
+    /* AWS Blue Primary Color */
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
     --primary-light: 217 91% 70%;
     --primary-dark: 217 91% 50%;
 
-    /* Violet Secondary - #7C3AED */
-    --secondary: 262 83% 58%;
+    /* Sky Blue Secondary */
+    --secondary: 199 89% 48%;
     --secondary-foreground: 0 0% 100%;
 
     /* Muted Backgrounds */
-    --muted: 210 20% 96%;
-    --muted-foreground: 217 19% 35%; /* #4B5563 - Muted gray */
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    /* Light Cyan Accent - #38BDF8 */
-    --accent: 199 89% 60%;
+    /* Bright Azure Accent */
+    --accent: 199 89% 48%;
     --accent-foreground: 0 0% 100%;
-    --accent-hover: 199 89% 48%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -49,19 +47,17 @@ Color Palette: AWS Blue (#2563EB), Sky Blue (#38BDF8), Cloud White (#F8FAFC)
     --input: 214 32% 91%;
     --ring: 217 91% 60%;
 
-    /* Cloud-Inspired Gradients - Blue to Violet */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(262 83% 58%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(199 89% 60%) 0%, hsl(217 91% 60%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(217 91% 95%) 0%, hsl(262 83% 95%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 20% 99%) 100%);
-    --gradient-bg: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 20% 98%) 50%, hsl(0 0% 100%) 100%);
+    /* Cloud-Inspired Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(199 89% 48%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(210 11% 96%) 0%, hsl(210 40% 98%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(199 89% 90%) 0%, hsl(210 40% 98%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
     
-    /* Soft Cloud Shadows with Card Depth */
-    --shadow-soft: 0 1px 3px hsl(217 33% 17% / 0.06), 0 1px 2px hsl(217 33% 17% / 0.04);
-    --shadow-medium: 0 4px 6px hsl(217 33% 17% / 0.07), 0 2px 4px hsl(217 33% 17% / 0.06);
-    --shadow-large: 0 10px 15px hsl(217 33% 17% / 0.1), 0 4px 6px hsl(217 33% 17% / 0.05);
-    --shadow-glow: 0 0 40px hsl(199 89% 60% / 0.4);
-    --shadow-glow-violet: 0 0 40px hsl(262 83% 58% / 0.3);
+    /* Soft Cloud Shadows */
+    --shadow-soft: 0 2px 8px hsl(217 91% 60% / 0.08);
+    --shadow-medium: 0 4px 16px hsl(217 91% 60% / 0.12);
+    --shadow-large: 0 8px 32px hsl(217 91% 60% / 0.16);
+    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.3);
     
     /* Smooth Cloud Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -144,46 +140,13 @@ html {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
 }
 
-p, span, div {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  line-height: 1.7;
-  letter-spacing: 0.01em;
-}
-
-.font-medium {
-  font-weight: 500;
-}
-
-.font-semibold {
-  font-weight: 600;
-}
-
-.font-bold {
-  font-weight: 700;
-}
-
-/* Glassmorphism effect - Cloud Dashboard Style */
+/* Glassmorphism effect */
 .glass {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.1), 0 1px 3px rgba(17, 24, 39, 0.05);
-}
-
-/* Button Glow Effect */
-.btn-glow {
-  box-shadow: 0 0 20px hsl(199 89% 60% / 0.4), 0 4px 6px hsl(217 33% 17% / 0.1);
-  transition: all 0.3s ease;
-}
-
-.btn-glow:hover {
-  box-shadow: 0 0 30px hsl(199 89% 60% / 0.6), 0 8px 16px hsl(217 33% 17% / 0.15);
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Animated cloud background */
