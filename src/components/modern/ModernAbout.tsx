@@ -27,14 +27,14 @@ const ModernAbout = () => {
   ];
 
   return (
-    <section id="about" className="py-24 bg-gradient-to-b from-background via-muted/30 to-background">
+    <section id="about" className="py-24 bg-gradient-to-b from-background via-background to-muted/30">
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Section Header - Pop-down animation */}
         <div data-aos="fade-down" className="text-center mb-20">
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-4 tracking-tight">
             About Me
           </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-primary via-accent to-primary mx-auto rounded-full"></div>
+          <div className="w-24 h-1.5 bg-gradient-primary mx-auto rounded-full"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -63,7 +63,7 @@ const ModernAbout = () => {
             
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-accent"></div>
+              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-secondary"></div>
               
               {education.map((edu, index) => (
                 <div 
@@ -73,10 +73,10 @@ const ModernAbout = () => {
                   className="relative mb-8 last:mb-0"
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-4 top-6 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-md z-10"></div>
+                  <div className="absolute left-4 top-6 w-4 h-4 bg-primary rounded-full border-4 border-card shadow-medium z-10"></div>
                   
                   {/* Education card */}
-                  <Card className="ml-16 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 border-l-4 border-l-primary rounded-xl bg-card shadow-soft">
+                  <Card className="ml-16 hover:shadow-large hover:scale-[1.02] transition-all duration-300 border-l-4 border-l-primary rounded-xl bg-card shadow-medium">
                     <CardContent className="p-7">
                       <div className="flex items-start gap-5">
                         <div className="p-3 bg-primary/10 rounded-xl text-primary shrink-0">
