@@ -40,7 +40,7 @@ const ModernNavigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div 
-            className="font-bold text-2xl text-foreground cursor-pointer hover:text-primary transition-colors duration-300 shrink-0"
+            className="font-bold text-2xl text-foreground cursor-pointer hover:text-primary transition-colors duration-300 shrink-0 tracking-tight"
             onClick={() => scrollToSection('home')}
           >
             Ravi Teja
@@ -52,17 +52,17 @@ const ModernNavigation = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium relative group whitespace-nowrap"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium relative group whitespace-nowrap text-sm tracking-wide"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full rounded-full"></span>
               </button>
             ))}
             
             <Button 
               variant="outline"
               size="sm"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              className="border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 rounded-lg shadow-soft hover:shadow-medium font-medium"
               onClick={() => window.open('https://red-tani-80.tiiny.site', '_blank')}
             >
               <Download className="h-4 w-4 mr-2" />
