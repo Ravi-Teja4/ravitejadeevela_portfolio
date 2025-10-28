@@ -6,6 +6,11 @@ on:
       - main
   workflow_dispatch:
 
+# ✅ Required for OIDC authentication to AWS
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   build:
     name: CI - Build React App, Scan, and Push to ECR
@@ -13,11 +18,11 @@ jobs:
 
     env:
       AWS_REGION: us-east-1
-      ECR_REPOSITORY: my-react-portfolio   # 🔹 Replace with your ECR repo name
+      ECR_REPOSITORY: my-react-portfolio     # 🔹 Replace with your ECR repository name
       IMAGE_TAG: latest
 
     steps:
-      # 🧩 Step 1: Checkout Repository
+      # 🧩 Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -57,11 +62,11 @@ jobs:
           exit-code: '0'
           vuln-type: 'os,library'
 
-      # 🔐 Step 7: Configure AWS Credentials (OIDC Recommended)
+      # 🔐 Step 7: Configure AWS Credentials using OIDC
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::123456789012:role/github-actions-role  # 🔹 Replace
+          role-to-assume: arn:aws:iam::362324939518:role/github-actions-role   # ✅ Replace
           aws-region: ${{ env.AWS_REGION }}
 
       # 🔑 Step 8: Login to Amazon ECR
@@ -69,7 +74,7 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
-      # 🛠️ Step 9: Build Docker Image (for React app)
+      # 🛠️ Step 9: Build Docker Image
       - name: Build Docker image
         run: |
           docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
@@ -95,7 +100,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ⚙️ Step 1: Deploy on EC2
+      # ⚙️ Step 1: SSH into EC2 and Deploy
       - name: SSH and Deploy
         uses: appleboy/ssh-action@v1.2.0
         with:
@@ -105,14 +110,14 @@ jobs:
           script: |
             echo "🛠️ Pulling latest image from ECR..."
             aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com
-
+            
             echo "🧹 Stopping old container (if exists)..."
             docker stop react-portfolio || true && docker rm react-portfolio || true
-
+            
             echo "📦 Pulling new image..."
             docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-react-portfolio:latest
-
+            
             echo "🚀 Running new container..."
             docker run -d -p 80:80 --name react-portfolio ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-react-portfolio:latest
-
+            
             echo "✅ React App Deployed Successfully!"
