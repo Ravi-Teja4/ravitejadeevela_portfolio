@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Mail, Github, Linkedin, ArrowRight } from 'lucide-react';
 import profileImage from '@/assets/ravi-teja-latest-photo.jpg';
+import awsIcon from '@/assets/aws-cloud-icon.jpg';
+import devopsIcon from '@/assets/devops-infinity-icon.png';
 
 const ModernHero = () => {
   const [displayedName, setDisplayedName] = useState('');
@@ -181,20 +183,20 @@ const ModernHero = () => {
                   />
                 </div>
 
-                {/* Floating badges */}
+                {/* Floating icon badges */}
                 <motion.div 
-                  className="absolute -top-4 -right-4 bg-white rounded-2xl px-4 py-2 shadow-lg border border-border/50"
+                  className="absolute -top-4 -right-4 bg-white rounded-[14px] p-2 shadow-soft"
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <p className="text-sm font-semibold text-primary">AWS Certified</p>
+                  <img src={awsIcon} alt="AWS" className="w-12 h-12 object-contain" />
                 </motion.div>
                 <motion.div 
-                  className="absolute -bottom-4 -left-4 bg-white rounded-2xl px-4 py-2 shadow-lg border border-border/50"
+                  className="absolute -bottom-4 -left-4 bg-white rounded-[14px] p-2 shadow-soft"
                   animate={{ y: [0, 10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 >
-                  <p className="text-sm font-semibold text-secondary">DevOps Pro</p>
+                  <img src={devopsIcon} alt="DevOps" className="w-12 h-12 object-contain" />
                 </motion.div>
               </motion.div>
             </div>
