@@ -33,14 +33,14 @@ const ModernNavigation = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-border/50' 
-        : 'bg-transparent'
+        ? 'bg-background/95 backdrop-blur-md shadow-large border-b-2 border-border' 
+        : 'bg-background/80 backdrop-blur-sm'
     }`}>
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div 
-            className="font-bold text-2xl text-foreground cursor-pointer hover:text-primary transition-colors duration-300 shrink-0"
+            className="font-extrabold text-2xl text-white cursor-pointer hover:text-accent transition-colors duration-300 shrink-0"
             onClick={() => scrollToSection('home')}
           >
             Ravi Teja
@@ -52,10 +52,10 @@ const ModernNavigation = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium relative group whitespace-nowrap"
+                className="text-muted-foreground hover:text-accent transition-colors duration-300 font-bold relative group whitespace-nowrap"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-accent transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
             
@@ -85,13 +85,13 @@ const ModernNavigation = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-border/50 shadow-lg">
+          <div className="md:hidden absolute top-full left-0 w-full bg-card/95 backdrop-blur-md border-b-2 border-border shadow-large">
             <div className="px-6 py-4 space-y-4">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left text-muted-foreground hover:text-primary transition-colors duration-300 font-medium py-2"
+                  className="block w-full text-left text-muted-foreground hover:text-accent transition-colors duration-300 font-bold py-2"
                 >
                   {item.name}
                 </button>

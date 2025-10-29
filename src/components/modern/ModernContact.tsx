@@ -45,20 +45,8 @@ const ModernContact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-background via-primary/5 to-secondary/5 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div 
-          className="absolute -top-40 -left-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-        <motion.div 
-          className="absolute -bottom-40 -right-40 w-80 h-80 bg-secondary/10 rounded-full blur-3xl"
-          animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 10, repeat: Infinity, delay: 2 }}
-        />
-      </div>
+    <section id="contact" className="py-20 bg-background relative overflow-hidden">
+      {/* Removed animated background for solid dark theme */}
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
@@ -86,8 +74,8 @@ const ModernContact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Card className="shadow-2xl border-0 bg-white/70 backdrop-blur-lg overflow-hidden">
-              <CardHeader className="pb-6 bg-gradient-to-br from-primary/5 to-secondary/5">
+            <Card className="shadow-large border-2 border-border bg-card overflow-hidden">
+              <CardHeader className="pb-6 bg-card">
                 <div className="flex items-center gap-3 mb-4">
                   <motion.div 
                     className="p-3 bg-primary/10 rounded-2xl text-primary"
@@ -116,15 +104,15 @@ const ModernContact = () => {
                       href={contact.href}
                       target={contact.href.startsWith('http') ? '_blank' : undefined}
                       rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="flex items-center gap-4 p-4 rounded-2xl bg-white/50 hover:bg-white/80 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-300 group shadow-soft hover:shadow-medium"
+                      className="flex items-center gap-4 p-4 rounded-2xl bg-background border-2 border-border hover:border-accent transition-all duration-300 group shadow-medium hover:shadow-glow"
                       whileHover={{ scale: 1.02, x: 4 }}
                     >
                       <div className={`${contact.color} group-hover:scale-110 transition-transform duration-300`}>
                         {contact.icon}
                       </div>
                       <div className="flex-1">
-                        <div className="font-semibold text-foreground text-sm">{contact.label}</div>
-                        <div className="text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                        <div className="font-bold text-white text-sm">{contact.label}</div>
+                        <div className="text-muted-foreground group-hover:text-accent transition-colors duration-300">
                           {contact.value}
                         </div>
                       </div>
@@ -145,22 +133,21 @@ const ModernContact = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <motion.div whileHover={{ scale: 1.03, y: -4 }}>
-                <Card className="shadow-lg border-0 bg-gradient-to-br from-primary/10 to-primary/5 hover:shadow-2xl transition-all duration-300 group overflow-hidden relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <Card className="shadow-medium border-2 border-border bg-card hover:shadow-glow transition-all duration-300 group overflow-hidden relative">
                   <CardContent className="p-8 text-center relative z-10">
                     <motion.div 
-                      className="inline-flex p-4 bg-white rounded-2xl text-primary mb-4 shadow-soft"
+                      className="inline-flex p-4 bg-primary rounded-2xl text-white mb-4 shadow-medium"
                       whileHover={{ rotate: [0, -5, 5, -5, 0] }}
                       transition={{ duration: 0.5 }}
                     >
                       <Calendar className="h-8 w-8" />
                     </motion.div>
-                    <h4 className="text-xl font-semibold text-foreground mb-2">Schedule a Call</h4>
+                    <h4 className="text-xl font-bold text-white mb-2">Schedule a Call</h4>
                     <p className="text-sm text-muted-foreground mb-6">
                       Let's discuss your cloud infrastructure needs
                     </p>
                     <Button 
-                      className="bg-primary hover:bg-primary-dark text-primary-foreground transition-all duration-300 rounded-xl px-6"
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 rounded-xl px-6"
                       onClick={() => window.open('mailto:deevelaraviteja@gmail.com?subject=Schedule%20a%20Call')}
                     >
                       Schedule Now
@@ -177,22 +164,22 @@ const ModernContact = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               <motion.div whileHover={{ scale: 1.03, y: -4 }}>
-                <Card className="shadow-lg border-0 bg-gradient-to-br from-secondary/10 to-secondary/5 hover:shadow-2xl transition-all duration-300 group overflow-hidden relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <Card className="shadow-medium border-2 border-border bg-card hover:shadow-glow-secondary transition-all duration-300 group overflow-hidden relative">
                   <CardContent className="p-8 text-center relative z-10">
                     <motion.div 
-                      className="inline-flex p-4 bg-white rounded-2xl text-secondary mb-4 shadow-soft"
+                      className="inline-flex p-4 bg-secondary rounded-2xl text-white mb-4 shadow-medium"
                       whileHover={{ rotate: [0, 5, -5, 5, 0] }}
                       transition={{ duration: 0.5 }}
                     >
                       <Github className="h-8 w-8" />
                     </motion.div>
-                    <h4 className="text-xl font-semibold text-foreground mb-2">Collaborate</h4>
+                    <h4 className="text-xl font-bold text-white mb-2">Collaborate</h4>
                     <p className="text-sm text-muted-foreground mb-6">
                       Open to cloud and DevOps projects
                     </p>
                     <Button 
-                      className="bg-secondary hover:bg-secondary/90 text-secondary-foreground transition-all duration-300 rounded-xl px-6"
+                      variant="secondary"
+                      className="transition-all duration-300 rounded-xl px-6"
                       onClick={() => window.open('https://github.com/Ravi-Teja4', '_blank')}
                     >
                       View GitHub
@@ -212,18 +199,18 @@ const ModernContact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <Card className="max-w-2xl mx-auto p-8 bg-white/70 backdrop-blur-lg border-0 shadow-lg">
+          <Card className="max-w-2xl mx-auto p-8 bg-card border-2 border-border shadow-large">
             <div className="flex items-center justify-center gap-4 mb-4">
               <motion.div
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <MapPin className="h-8 w-8 text-primary" />
+                <MapPin className="h-8 w-8 text-accent" />
               </motion.div>
-              <h3 className="text-2xl font-semibold text-foreground">Location & Availability</h3>
+              <h3 className="text-2xl font-bold text-white">Location & Availability</h3>
             </div>
             <p className="text-muted-foreground mb-2">
-              <strong className="text-foreground">Based in India</strong> • Available for remote work globally
+              <strong className="text-white">Based in India</strong> • Available for remote work globally
             </p>
             <p className="text-sm text-muted-foreground">
               Open to full-time opportunities, freelance projects, and consulting engagements

@@ -5,61 +5,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Cloud & DevOps Portfolio Design System - Deevela Ravi Teja
+/* Bold Dark Theme Portfolio - Deevela Ravi Teja
 All colors MUST be HSL.
-Color Palette: AWS Blue (#2563EB), Sky Blue (#38BDF8), Cloud White (#F8FAFC)
+High-Contrast Dark Theme: Royal Purple (#4F46E5), Bold Orange (#FF6B00), Neon Green (#00E6A1)
 */
 
 @layer base {
   :root {
-    /* Base Colors - Cloud White Background */
-    --background: 210 40% 98%;
-    --foreground: 215 25% 14%;
+    /* Deep Black Background */
+    --background: 240 9% 4%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 14%;
+    --card: 240 14% 8%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 14%;
+    --popover: 240 14% 8%;
+    --popover-foreground: 0 0% 100%;
 
-    /* AWS Blue Primary Color */
-    --primary: 217 91% 60%;
+    /* Royal Purple Primary */
+    --primary: 243 75% 59%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 217 91% 70%;
-    --primary-dark: 217 91% 50%;
+    --primary-light: 243 75% 69%;
+    --primary-dark: 243 75% 49%;
 
-    /* Sky Blue Secondary */
-    --secondary: 199 89% 48%;
+    /* Bold Orange Secondary */
+    --secondary: 25 100% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Muted Backgrounds */
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    /* Muted Text for Readability */
+    --muted: 240 14% 8%;
+    --muted-foreground: 228 12% 80%;
 
-    /* Bright Azure Accent */
-    --accent: 199 89% 48%;
-    --accent-foreground: 0 0% 100%;
+    /* Neon Green Accent */
+    --accent: 162 100% 45%;
+    --accent-foreground: 240 9% 4%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 217 91% 60%;
+    --border: 240 14% 15%;
+    --input: 240 14% 15%;
+    --ring: 243 75% 59%;
 
-    /* Cloud-Inspired Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(199 89% 48%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(210 11% 96%) 0%, hsl(210 40% 98%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(199 89% 90%) 0%, hsl(210 40% 98%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
+    /* Solid Color System - No Gradients */
+    --gradient-primary: hsl(243 75% 59%);
+    --gradient-secondary: hsl(240 14% 8%);
+    --gradient-hero: hsl(240 9% 4%);
+    --gradient-card: hsl(240 14% 8%);
     
-    /* Soft Cloud Shadows */
-    --shadow-soft: 0 2px 8px hsl(217 91% 60% / 0.08);
-    --shadow-medium: 0 4px 16px hsl(217 91% 60% / 0.12);
-    --shadow-large: 0 8px 32px hsl(217 91% 60% / 0.16);
-    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.3);
+    /* Bold Shadows with Accent Glow */
+    --shadow-soft: 0 2px 12px hsl(0 0% 0% / 0.4);
+    --shadow-medium: 0 4px 20px hsl(0 0% 0% / 0.5);
+    --shadow-large: 0 8px 40px hsl(0 0% 0% / 0.6);
+    --shadow-glow: 0 0 30px hsl(162 100% 45% / 0.4);
+    --shadow-glow-primary: 0 0 30px hsl(243 75% 59% / 0.5);
+    --shadow-glow-secondary: 0 0 30px hsl(25 100% 50% / 0.5);
     
-    /* Smooth Cloud Transitions */
+    /* Smooth Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
@@ -83,41 +85,42 @@ Color Palette: AWS Blue (#2563EB), Sky Blue (#38BDF8), Cloud White (#F8FAFC)
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Same as light theme - we use dark theme by default */
+    --background: 240 9% 4%;
+    --foreground: 0 0% 100%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 240 14% 8%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 240 14% 8%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 243 75% 59%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 25 100% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 240 14% 8%;
+    --muted-foreground: 228 12% 80%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 162 100% 45%;
+    --accent-foreground: 240 9% 4%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --border: 240 14% 15%;
+    --input: 240 14% 15%;
+    --ring: 243 75% 59%;
+    --sidebar-background: 240 9% 4%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 243 75% 59%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 240 14% 8%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 14% 15%;
+    --sidebar-ring: 243 75% 59%;
   }
 }
 
@@ -139,7 +142,8 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
+  font-weight: 800;
+  color: hsl(0 0% 100%);
 }
 
 /* Glassmorphism effect */

@@ -22,7 +22,7 @@ const ModernFooter = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gradient-to-br from-primary/5 via-background to-secondary/5 border-t border-border/50">
+    <footer className="relative bg-card border-t-2 border-border">
       <div className="container mx-auto px-6 py-16">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand Section */}
@@ -33,8 +33,8 @@ const ModernFooter = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center gap-2 mb-4">
-              <Cloud className="h-8 w-8 text-primary" />
-              <h3 className="text-2xl font-bold text-foreground">Ravi Teja</h3>
+              <Cloud className="h-8 w-8 text-accent" />
+              <h3 className="text-2xl font-extrabold text-white">Ravi Teja</h3>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               AWS Cloud & DevOps Enthusiast building scalable, secure, and automated cloud solutions.
@@ -50,7 +50,7 @@ const ModernFooter = () => {
                   href={href}
                   target={href.startsWith('http') ? '_blank' : undefined}
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="p-3 rounded-xl bg-white shadow-soft hover:shadow-medium border border-border/50 text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+                  className="p-3 rounded-xl bg-background shadow-medium hover:shadow-glow border-2 border-border text-muted-foreground hover:text-accent hover:border-accent transition-all duration-300"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label={label}
@@ -68,17 +68,17 @@ const ModernFooter = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="text-lg font-semibold text-foreground mb-4">Quick Links</h4>
+            <h4 className="text-lg font-bold text-white mb-4">Quick Links</h4>
             <ul className="space-y-3">
               {['Home', 'About', 'Experience', 'Skills', 'Projects', 'Contact'].map((item) => (
                 <li key={item}>
                   <button
                     onClick={() => document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300 relative group"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-300 relative group"
                   >
                     <span className="relative">
                       {item}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                      <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full"></span>
                     </span>
                   </button>
                 </li>
@@ -93,7 +93,7 @@ const ModernFooter = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-lg font-semibold text-foreground mb-4">Core Technologies</h4>
+            <h4 className="text-lg font-bold text-white mb-4">Core Technologies</h4>
             <div className="flex flex-wrap gap-2">
               {['AWS', 'Terraform', 'Docker', 'Kubernetes', 'Linux', 'Python', 'CI/CD'].map((tech) => (
                 <span
@@ -105,7 +105,7 @@ const ModernFooter = () => {
               ))}
             </div>
             <div className="mt-8">
-              <h4 className="text-lg font-semibold text-foreground mb-4">Resume</h4>
+              <h4 className="text-lg font-bold text-white mb-4">Resume</h4>
               <Button 
                 variant="outline"
                 size="sm"
@@ -120,7 +120,7 @@ const ModernFooter = () => {
 
         {/* Bottom Bar */}
         <motion.div 
-          className="pt-8 border-t border-border/50 text-center"
+          className="pt-8 border-t-2 border-border text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -128,9 +128,9 @@ const ModernFooter = () => {
         >
           <p className="text-muted-foreground text-sm flex items-center justify-center gap-2 flex-wrap">
             © {currentYear} Deevela Ravi Teja. Built with 
-            <Heart className="h-4 w-4 text-red-500 inline-block animate-pulse" />
+            <Heart className="h-4 w-4 text-secondary inline-block animate-pulse" />
             and 
-            <Cloud className="h-4 w-4 text-primary inline-block" />
+            <Cloud className="h-4 w-4 text-accent inline-block" />
             cloud technologies.
           </p>
         </motion.div>
@@ -139,7 +139,7 @@ const ModernFooter = () => {
       {/* Back to Top Button */}
       <motion.button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 p-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-full shadow-lg hover:shadow-glow transition-all duration-300 z-50 ${
+        className={`fixed bottom-8 right-8 p-4 bg-primary text-primary-foreground rounded-full shadow-large hover:shadow-glow transition-all duration-300 z-50 ${
           showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16 pointer-events-none'
         }`}
         whileHover={{ scale: 1.1, rotate: 360 }}

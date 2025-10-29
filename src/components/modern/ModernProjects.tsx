@@ -50,7 +50,7 @@ const ModernProjects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-background to-primary/5">
+    <section id="projects" className="py-20 bg-card">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div 
@@ -83,20 +83,19 @@ const ModernProjects = () => {
                 whileHover={{ scale: 1.05, y: -8 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="h-full hover:shadow-2xl transition-all duration-500 overflow-hidden border-0 bg-white relative group">
-                  {/* Gradient overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+                <Card className="h-full hover:shadow-glow transition-all duration-500 overflow-hidden border-2 border-border bg-background relative group">
+                  {/* Removed gradient overlay for solid dark theme */}
                   
                   <CardHeader className="relative z-10 pb-4">
                     <div className="flex items-center gap-4 mb-4">
                       <motion.div 
-                        className={`p-3 rounded-2xl bg-gradient-to-br ${project.gradient} text-white shadow-lg`}
+                        className="p-3 rounded-2xl bg-primary text-white shadow-lg"
                         whileHover={{ rotate: [0, -10, 10, -10, 0] }}
                         transition={{ duration: 0.5 }}
                       >
                         {project.icon}
                       </motion.div>
-                      <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors duration-300">
                         {project.title}
                       </h3>
                     </div>
@@ -160,8 +159,8 @@ const ModernProjects = () => {
               whileHover={{ scale: 1.05, y: -4 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="text-center p-6 shadow-soft hover:shadow-medium transition-all duration-300 border-t-4 border-t-primary bg-white">
-                <div className={`text-3xl font-bold text-${stat.color} mb-2`}>{stat.value}</div>
+              <Card className="text-center p-6 shadow-medium hover:shadow-glow transition-all duration-300 border-t-4 border-t-primary bg-card">
+                <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </Card>
             </motion.div>
