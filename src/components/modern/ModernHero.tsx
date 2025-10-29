@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, Mail, Github, Linkedin, ArrowRight } from 'lucide-react';
+import { ChevronDown, Mail, Github, Linkedin, ArrowRight, Cloud, Infinity } from 'lucide-react';
 import profileImage from '@/assets/ravi-teja-latest-photo.jpg';
 
 const ModernHero = () => {
@@ -181,20 +181,22 @@ const ModernHero = () => {
                   />
                 </div>
 
-                {/* Floating badges */}
+                {/* Floating icon badges */}
                 <motion.div 
-                  className="absolute -top-4 -right-4 bg-white rounded-2xl px-4 py-2 shadow-lg border border-border/50"
+                  className="absolute -top-4 -right-4 bg-white rounded-2xl p-3 shadow-medium border border-border/50 hover:shadow-glow transition-all duration-300"
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  whileHover={{ scale: 1.1 }}
                 >
-                  <p className="text-sm font-semibold text-primary">AWS Certified</p>
+                  <Cloud className="w-8 h-8 text-primary" strokeWidth={2.5} />
                 </motion.div>
                 <motion.div 
-                  className="absolute -bottom-4 -left-4 bg-white rounded-2xl px-4 py-2 shadow-lg border border-border/50"
+                  className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-3 shadow-medium border border-border/50 hover:shadow-glow-violet transition-all duration-300"
                   animate={{ y: [0, 10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  whileHover={{ scale: 1.1 }}
                 >
-                  <p className="text-sm font-semibold text-secondary">DevOps Pro</p>
+                  <Infinity className="w-8 h-8 text-secondary" strokeWidth={2.5} />
                 </motion.div>
               </motion.div>
             </div>
