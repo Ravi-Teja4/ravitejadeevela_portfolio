@@ -50,7 +50,7 @@ const ModernProjects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-card">
+    <section id="projects" className="py-20" style={{ backgroundColor: '#00008B' }}>
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div 
