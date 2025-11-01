@@ -83,7 +83,7 @@ const ModernProjects = () => {
                 whileHover={{ scale: 1.05, y: -8 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="h-full hover:shadow-glow transition-all duration-500 overflow-hidden border-2 border-border bg-background relative group">
+                <Card className="h-full hover:shadow-glow transition-all duration-500 overflow-hidden border-2 border-border relative group" style={{ backgroundColor: '#E57E2E' }}>
                   {/* Removed gradient overlay for solid dark theme */}
                   
                   <CardHeader className="relative z-10 pb-4">
