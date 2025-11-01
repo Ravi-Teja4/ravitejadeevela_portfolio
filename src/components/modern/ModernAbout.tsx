@@ -27,7 +27,7 @@ const ModernAbout = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-card">
+    <section id="about" className="py-20 bg-[hsl(219_51%_16%)]">
       <div className="container mx-auto px-6">
         {/* Section Header - Pop-down animation */}
         <div data-aos="fade-down" className="text-center mb-16">
