@@ -30,11 +30,9 @@ const ModernHero = () => {
   };
 
   return (
-    <section 
-      id="home" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
-      style={{ background: 'linear-gradient(135deg, #0A0F25, #14213D, #0A0F25)' }}
-    >
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-20">
+      {/* Removed animated background elements for clean dark theme */}
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}

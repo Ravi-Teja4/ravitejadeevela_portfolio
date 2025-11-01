@@ -12,67 +12,59 @@ High-Contrast Dark Theme: Royal Purple (#4F46E5), Bold Orange (#FF6B00), Neon Gr
 
 @layer base {
   :root {
-    /* Main Background - Deep Navy */
-    --background: 220 57% 9%;
+    /* Main Dark Blue Background */
+    --background: 240 100% 27%;
     --foreground: 0 0% 100%;
 
-    /* Section/Secondary Background */
-    --section-background: 219 51% 16%;
-
     /* Orange Card Background */
-    --card: 26 78% 54%;
+    --card: 27 78% 53%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 26 78% 54%;
+    --popover: 27 78% 53%;
     --popover-foreground: 0 0% 100%;
 
-    /* Accent/Highlight Elements - Bright Blue */
-    --primary: 211 100% 65%;
+    /* Blue Primary for Hover/Active */
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 211 100% 75%;
-    --primary-dark: 211 100% 55%;
-
-    /* Button Hover - Blue */
-    --primary-hover: 217 84% 53%;
+    --primary-light: 217 91% 70%;
+    --primary-dark: 217 91% 50%;
 
     /* Orange Secondary */
-    --secondary: 26 78% 54%;
+    --secondary: 27 78% 53%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Secondary Text - Light Grey */
-    --muted: 219 51% 16%;
-    --muted-foreground: 220 30% 87%;
+    /* Muted Text - Light Cream */
+    --muted: 27 78% 53%;
+    --muted-foreground: 30 100% 94%;
 
-    /* Accent Color */
-    --accent: 211 100% 65%;
-    --accent-foreground: 220 57% 9%;
+    /* Light Orange Accent */
+    --accent: 30 100% 73%;
+    --accent-foreground: 240 100% 27%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 211 100% 65%;
-    --input: 26 78% 54%;
-    --ring: 211 100% 65%;
+    --border: 30 100% 73%;
+    --input: 27 78% 53%;
+    --ring: 217 91% 60%;
 
-    /* Hero Gradient Background */
-    --gradient-hero: linear-gradient(135deg, hsl(220 57% 9%), hsl(219 51% 16%), hsl(220 57% 9%));
-    --gradient-primary: hsl(211 100% 65%);
-    --gradient-secondary: hsl(26 78% 54%);
-    --gradient-card: hsl(26 78% 54%);
+    /* Solid Color System - No Gradients */
+    --gradient-primary: hsl(217 91% 60%);
+    --gradient-secondary: hsl(27 78% 53%);
+    --gradient-hero: hsl(240 100% 27%);
+    --gradient-card: hsl(27 78% 53%);
     
-    /* Updated Shadows and Glows */
+    /* Shadows with Updated Accent Colors */
     --shadow-soft: 0 2px 12px hsl(0 0% 0% / 0.4);
     --shadow-medium: 0 4px 20px hsl(0 0% 0% / 0.5);
     --shadow-large: 0 8px 40px hsl(0 0% 0% / 0.6);
-    --shadow-card-hover: 0 4px 25px hsl(0 0% 0% / 0.35);
-    --shadow-glow: 0 0 12px hsl(211 100% 65% / 0.7);
-    --shadow-glow-primary: 0 0 12px hsl(211 100% 65% / 0.7);
-    --shadow-glow-secondary: 0 0 12px hsl(26 78% 54% / 0.5);
+    --shadow-glow: 0 0 30px hsl(30 100% 73% / 0.4);
+    --shadow-glow-primary: 0 0 30px hsl(217 91% 60% / 0.5);
+    --shadow-glow-secondary: 0 0 30px hsl(27 78% 53% / 0.5);
     
     /* Smooth Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --transition-button: all 0.25s ease;
 
     --radius: 0.75rem;
 
@@ -95,45 +87,41 @@ High-Contrast Dark Theme: Royal Purple (#4F46E5), Bold Orange (#FF6B00), Neon Gr
 
   .dark {
     /* Same as light theme - we use dark theme by default */
-    --background: 220 57% 9%;
+    --background: 240 100% 27%;
     --foreground: 0 0% 100%;
-    
-    --section-background: 219 51% 16%;
 
-    --card: 26 78% 54%;
+    --card: 27 78% 53%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 26 78% 54%;
+    --popover: 27 78% 53%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 211 100% 65%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    
-    --primary-hover: 217 84% 53%;
 
-    --secondary: 26 78% 54%;
+    --secondary: 27 78% 53%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 219 51% 16%;
-    --muted-foreground: 220 30% 87%;
+    --muted: 27 78% 53%;
+    --muted-foreground: 30 100% 94%;
 
-    --accent: 211 100% 65%;
-    --accent-foreground: 220 57% 9%;
+    --accent: 30 100% 73%;
+    --accent-foreground: 240 100% 27%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 211 100% 65%;
-    --input: 26 78% 54%;
-    --ring: 211 100% 65%;
-    --sidebar-background: 220 57% 9%;
+    --border: 30 100% 73%;
+    --input: 27 78% 53%;
+    --ring: 217 91% 60%;
+    --sidebar-background: 240 100% 27%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 211 100% 65%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 26 78% 54%;
+    --sidebar-accent: 27 78% 53%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 211 100% 65%;
-    --sidebar-ring: 211 100% 65%;
+    --sidebar-border: 30 100% 73%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 

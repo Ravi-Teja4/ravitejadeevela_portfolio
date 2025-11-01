@@ -45,7 +45,9 @@ const ModernContact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-[hsl(219_51%_16%)] relative overflow-hidden">
+    <section id="contact" className="py-20 bg-background relative overflow-hidden">
+      {/* Removed animated background for solid dark theme */}
+
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <motion.div 
