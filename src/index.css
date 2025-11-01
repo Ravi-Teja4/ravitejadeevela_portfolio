@@ -12,54 +12,55 @@ High-Contrast Dark Theme: Royal Purple (#4F46E5), Bold Orange (#FF6B00), Neon Gr
 
 @layer base {
   :root {
-    /* Deep Black Background */
-    --background: 240 9% 4%;
+    /* Main Dark Blue Background */
+    --background: 240 100% 27%;
     --foreground: 0 0% 100%;
 
-    --card: 240 14% 8%;
+    /* Orange Card Background */
+    --card: 27 78% 53%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 240 14% 8%;
+    --popover: 27 78% 53%;
     --popover-foreground: 0 0% 100%;
 
-    /* Royal Purple Primary */
-    --primary: 243 75% 59%;
+    /* Blue Primary for Hover/Active */
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 243 75% 69%;
-    --primary-dark: 243 75% 49%;
+    --primary-light: 217 91% 70%;
+    --primary-dark: 217 91% 50%;
 
-    /* Bold Orange Secondary */
-    --secondary: 25 100% 50%;
+    /* Orange Secondary */
+    --secondary: 27 78% 53%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Muted Text for Readability */
-    --muted: 240 14% 8%;
-    --muted-foreground: 228 12% 80%;
+    /* Muted Text - Light Cream */
+    --muted: 27 78% 53%;
+    --muted-foreground: 30 100% 94%;
 
-    /* Neon Green Accent */
-    --accent: 162 100% 45%;
-    --accent-foreground: 240 9% 4%;
+    /* Light Orange Accent */
+    --accent: 30 100% 73%;
+    --accent-foreground: 240 100% 27%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 14% 15%;
-    --input: 240 14% 15%;
-    --ring: 243 75% 59%;
+    --border: 30 100% 73%;
+    --input: 27 78% 53%;
+    --ring: 217 91% 60%;
 
     /* Solid Color System - No Gradients */
-    --gradient-primary: hsl(243 75% 59%);
-    --gradient-secondary: hsl(240 14% 8%);
-    --gradient-hero: hsl(240 9% 4%);
-    --gradient-card: hsl(240 14% 8%);
+    --gradient-primary: hsl(217 91% 60%);
+    --gradient-secondary: hsl(27 78% 53%);
+    --gradient-hero: hsl(240 100% 27%);
+    --gradient-card: hsl(27 78% 53%);
     
-    /* Bold Shadows with Accent Glow */
+    /* Shadows with Updated Accent Colors */
     --shadow-soft: 0 2px 12px hsl(0 0% 0% / 0.4);
     --shadow-medium: 0 4px 20px hsl(0 0% 0% / 0.5);
     --shadow-large: 0 8px 40px hsl(0 0% 0% / 0.6);
-    --shadow-glow: 0 0 30px hsl(162 100% 45% / 0.4);
-    --shadow-glow-primary: 0 0 30px hsl(243 75% 59% / 0.5);
-    --shadow-glow-secondary: 0 0 30px hsl(25 100% 50% / 0.5);
+    --shadow-glow: 0 0 30px hsl(30 100% 73% / 0.4);
+    --shadow-glow-primary: 0 0 30px hsl(217 91% 60% / 0.5);
+    --shadow-glow-secondary: 0 0 30px hsl(27 78% 53% / 0.5);
     
     /* Smooth Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -86,41 +87,41 @@ High-Contrast Dark Theme: Royal Purple (#4F46E5), Bold Orange (#FF6B00), Neon Gr
 
   .dark {
     /* Same as light theme - we use dark theme by default */
-    --background: 240 9% 4%;
+    --background: 240 100% 27%;
     --foreground: 0 0% 100%;
 
-    --card: 240 14% 8%;
+    --card: 27 78% 53%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 240 14% 8%;
+    --popover: 27 78% 53%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 243 75% 59%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 25 100% 50%;
+    --secondary: 27 78% 53%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 14% 8%;
-    --muted-foreground: 228 12% 80%;
+    --muted: 27 78% 53%;
+    --muted-foreground: 30 100% 94%;
 
-    --accent: 162 100% 45%;
-    --accent-foreground: 240 9% 4%;
+    --accent: 30 100% 73%;
+    --accent-foreground: 240 100% 27%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 14% 15%;
-    --input: 240 14% 15%;
-    --ring: 243 75% 59%;
-    --sidebar-background: 240 9% 4%;
+    --border: 30 100% 73%;
+    --input: 27 78% 53%;
+    --ring: 217 91% 60%;
+    --sidebar-background: 240 100% 27%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 243 75% 59%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 14% 8%;
+    --sidebar-accent: 27 78% 53%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 240 14% 15%;
-    --sidebar-ring: 243 75% 59%;
+    --sidebar-border: 30 100% 73%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
