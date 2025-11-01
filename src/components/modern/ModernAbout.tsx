@@ -27,7 +27,7 @@ const ModernAbout = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-card">
+    <section id="about" className="py-20" style={{ backgroundColor: '#00008B' }}>
       <div className="container mx-auto px-6">
         {/* Section Header - Pop-down animation */}
         <div data-aos="fade-down" className="text-center mb-16">
@@ -76,7 +76,7 @@ const ModernAbout = () => {
                   <div className="absolute left-4 top-6 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-md z-10"></div>
                   
                   {/* Education card */}
-                  <Card className="ml-16 hover:shadow-lg transition-all duration-300 border-l-4 border-l-primary">
+                  <Card className="ml-16 hover:shadow-lg transition-all duration-300 border-l-4 border-l-primary" style={{ backgroundColor: '#E57E2E' }}>
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
                         <div className="p-2 bg-primary/10 rounded-lg text-primary">
