@@ -12,12 +12,16 @@ import {
   GitBranch,
   Monitor
 } from 'lucide-react';
+import awsCloudIcon from '@/assets/aws-cloud-icon.png';
+import gitBranchIcon from '@/assets/git-branch-icon.png';
+import cicdIcon from '@/assets/cicd-icon.png';
 
 const ModernSkills = () => {
   const skillCategories = [
     {
       title: "Cloud Platforms & Services",
       icon: <Cloud className="h-8 w-8" />,
+      customIcon: awsCloudIcon,
       skills: ["EC2", "S3", "RDS", "Lambda", "CloudFront", "CloudWatch", "Route 53", "IAM", "Auto Scaling", "ALB", "CloudTrail", "Elastic Beanstalk", "EBS", "VPC"],
       color: "bg-primary",
       delay: 0
@@ -25,6 +29,7 @@ const ModernSkills = () => {
     {
       title: "Version Control",
       icon: <GitBranch className="h-8 w-8" />,
+      customIcon: gitBranchIcon,
       skills: ["Git", "GitHub"],
       color: "bg-accent",
       delay: 100
@@ -32,6 +37,7 @@ const ModernSkills = () => {
     {
       title: "CI/CD",
       icon: <Code className="h-8 w-8" />,
+      customIcon: cicdIcon,
       skills: ["GitHub Actions"],
       color: "bg-primary",
       delay: 200
@@ -125,10 +131,18 @@ const ModernSkills = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <CardContent className="p-6 relative z-10">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className={`p-3 rounded-xl text-primary-foreground ${category.color} group-hover:scale-110 transition-transform duration-300`}>
-                    {category.icon}
-                  </div>
+                <div className="flex items-center gap-3 mb-4">
+                  {category.customIcon ? (
+                    <img 
+                      src={category.customIcon} 
+                      alt={`${category.title} icon`}
+                      className="h-12 w-12 object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div className={`p-3 rounded-xl text-primary-foreground ${category.color} group-hover:scale-110 transition-transform duration-300`}>
+                      {category.icon}
+                    </div>
+                  )}
                   <h3 className="font-bold text-foreground text-lg group-hover:text-primary transition-colors duration-300">
                     {category.title}
                   </h3>
