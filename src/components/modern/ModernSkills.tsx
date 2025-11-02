@@ -15,6 +15,14 @@ import {
 import awsCloudIcon from '@/assets/aws-cloud-icon.png';
 import gitBranchIcon from '@/assets/git-branch-icon.png';
 import cicdIcon from '@/assets/cicd-icon.png';
+import containersIcon from '@/assets/containers-icon.png';
+import appServersIcon from '@/assets/app-servers-icon.png';
+import monitoringIcon from '@/assets/monitoring-icon.png';
+import terraformIcon from '@/assets/terraform-icon.png';
+import databaseIcon from '@/assets/database-icon.png';
+import securityIcon from '@/assets/security-icon.png';
+import scriptingIcon from '@/assets/scripting-icon.png';
+import osIcon from '@/assets/os-icon.png';
 
 const ModernSkills = () => {
   const skillCategories = [
@@ -45,6 +53,7 @@ const ModernSkills = () => {
     {
       title: "Containers & Orchestration",
       icon: <Server className="h-8 w-8" />,
+      customIcon: containersIcon,
       skills: ["Docker", "Kubernetes"],
       color: "bg-accent",
       delay: 300
@@ -52,49 +61,56 @@ const ModernSkills = () => {
     {
       title: "Application Servers",
       icon: <Server className="h-8 w-8" />,
-      skills: ["Apache Tomcat", "Nginx"],
+      customIcon: appServersIcon,
+      skills: ["Nginx", "Apache", "Tomcat"],
       color: "bg-primary",
       delay: 400
     },
     {
       title: "Monitoring & Observability",
       icon: <Monitor className="h-8 w-8" />,
-      skills: ["AWS CloudWatch", "Prometheus", "Grafana"],
+      customIcon: monitoringIcon,
+      skills: ["Grafana", "Prometheus", "CloudWatch"],
       color: "bg-accent",
       delay: 500
     },
     {
-      title: "Infrastructure as Code (IaC)",
+      title: "Infrastructure as Code",
       icon: <Code className="h-8 w-8" />,
-      skills: ["Terraform"],
+      customIcon: terraformIcon,
+      skills: ["Terraform", "AWS CloudFormation"],
       color: "bg-primary",
       delay: 600
     },
     {
       title: "Databases",
       icon: <Database className="h-8 w-8" />,
-      skills: ["SQL", "Amazon DynamoDB"],
+      customIcon: databaseIcon,
+      skills: ["MySQL", "PostgreSQL", "RDS"],
       color: "bg-accent",
       delay: 700
     },
     {
       title: "Security",
       icon: <Shield className="h-8 w-8" />,
-      skills: ["Web Application Firewall (WAF)", "ACL", "Security Groups", "IAM Policies"],
+      customIcon: securityIcon,
+      skills: ["IAM", "KMS", "Security Groups", "SSL/HTTPS"],
       color: "bg-primary",
       delay: 800
     },
     {
       title: "Scripting",
       icon: <Terminal className="h-8 w-8" />,
-      skills: ["Python"],
+      customIcon: scriptingIcon,
+      skills: ["Bash", "Shell", "Python scripting"],
       color: "bg-accent",
       delay: 900
     },
     {
       title: "Operating Systems",
       icon: <Monitor className="h-8 w-8" />,
-      skills: ["Linux", "Windows"],
+      customIcon: osIcon,
+      skills: ["Linux (Ubuntu/RedHat)", "Windows", "MacOS"],
       color: "bg-primary",
       delay: 1000
     }
