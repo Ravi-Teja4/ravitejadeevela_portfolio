@@ -13,7 +13,7 @@ const ModernContentCreation = () => {
   }, []);
 
   return (
-    <section id="content-creation" className="py-20 bg-secondary/30">
+    <section id="content-creation" className="py-20" style={{ backgroundColor: '#00008B' }}>
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div data-aos="fade-up" className="text-center mb-16">
@@ -31,17 +31,18 @@ const ModernContentCreation = () => {
           <div 
             data-aos="zoom-in" 
             data-aos-delay="200"
-            className="bg-background rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+            className="rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+            style={{ backgroundColor: '#E57E2E' }}
           >
             <div className="flex items-center justify-center mb-6">
               <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Youtube className="w-8 h-8 text-white" />
               </div>
             </div>
-            <h3 className="text-2xl font-bold text-foreground text-center mb-4">
+            <h3 className="text-2xl font-bold text-white text-center mb-4">
               YouTube Channel
             </h3>
-            <p className="text-muted-foreground text-center mb-6">
+            <p className="text-white text-center mb-6">
               DevOps tutorials, AWS guides, and cloud architecture insights
             </p>
             <div className="text-center">
@@ -66,17 +67,18 @@ const ModernContentCreation = () => {
           <div 
             data-aos="zoom-in" 
             data-aos-delay="400"
-            className="bg-background rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+            className="rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+            style={{ backgroundColor: '#E57E2E' }}
           >
             <div className="flex items-center justify-center mb-6">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Instagram className="w-8 h-8 text-white" />
               </div>
             </div>
-            <h3 className="text-2xl font-bold text-foreground text-center mb-4">
+            <h3 className="text-2xl font-bold text-white text-center mb-4">
               Instagram
             </h3>
-            <p className="text-muted-foreground text-center mb-6">
+            <p className="text-white text-center mb-6">
               Daily DevOps tips, behind-the-scenes content, and tech insights
             </p>
             <div className="text-center">
