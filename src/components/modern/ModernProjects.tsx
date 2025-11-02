@@ -126,7 +126,11 @@ const ModernProjects = () => {
                         {project.technologies.map((tech, idx) => (
                           <span
                             key={idx}
-                            className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                            className="px-3 py-1 text-xs font-medium rounded-full transition-all duration-300"
+                            style={{
+                              backgroundColor: '#4DA3FF',
+                              color: '#FFFFFF'
+                            }}
                           >
                             {tech}
                           </span>
