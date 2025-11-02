@@ -103,10 +103,10 @@ const ModernExperience = () => {
                           {exp.type}
                         </Badge>
                       </div>
-                      <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                      <h3 className="text-xl font-semibold mb-2 transition-colors duration-300" style={{ color: '#4DA3FF' }}>
                         {exp.title}
                       </h3>
-                      <p className="text-lg font-medium text-primary mb-3">
+                      <p className="text-lg font-medium mb-3" style={{ color: '#AFC6E9' }}>
                         {exp.company}
                       </p>
                       <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
