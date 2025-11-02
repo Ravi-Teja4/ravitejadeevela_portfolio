@@ -145,7 +145,11 @@ const ModernExperience = () => {
                         <Badge 
                           key={idx} 
                           variant="outline" 
-                          className="border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                          className="transition-all duration-300 border-0"
+                          style={{
+                            backgroundColor: '#4DA3FF',
+                            color: '#FFFFFF'
+                          }}
                         >
                           {tech}
                         </Badge>
