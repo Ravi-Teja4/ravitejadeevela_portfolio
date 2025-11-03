@@ -45,10 +45,8 @@ const ModernContact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-background relative overflow-hidden">
-      {/* Removed animated background for solid dark theme */}
-
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="contact" className="py-20" style={{ backgroundColor: '#00008B' }}>
+      <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div 
           className="text-center mb-16"
@@ -57,10 +55,9 @@ const ModernContact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Let's Connect
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8 rounded-full"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Ready to discuss your next cloud project? Let's build something amazing together.
           </p>
