@@ -2,6 +2,9 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, Cloud, Database, Shield, Code } from 'lucide-react';
+import medicareIcon from '@/assets/medicare-icon.jpg';
+import awsServerlessIcon from '@/assets/aws-serverless-icon.jpg';
+import aws3TierIcon from '@/assets/aws-3tier-icon.jpg';
 
 const ModernProjects = () => {
   const projects = [
@@ -16,6 +19,7 @@ const ModernProjects = () => {
         "Cost-optimized cloud architecture"
       ],
       icon: <Database className="h-8 w-8" />,
+      customIcon: medicareIcon,
       gradient: "from-primary to-secondary",
       delay: 0
     },
@@ -30,6 +34,7 @@ const ModernProjects = () => {
         "Real-time data processing"
       ],
       icon: <Code className="h-8 w-8" />,
+      customIcon: awsServerlessIcon,
       gradient: "from-accent to-primary",
       delay: 200
     },
@@ -44,6 +49,7 @@ const ModernProjects = () => {
         "Performance optimization"
       ],
       icon: <Cloud className="h-8 w-8" />,
+      customIcon: aws3TierIcon,
       gradient: "from-secondary to-accent",
       delay: 400
     }
@@ -93,7 +99,15 @@ const ModernProjects = () => {
                         whileHover={{ rotate: [0, -10, 10, -10, 0] }}
                         transition={{ duration: 0.5 }}
                       >
-                        {project.icon}
+                        {project.customIcon ? (
+                          <img 
+                            src={project.customIcon} 
+                            alt={project.title}
+                            className="h-12 w-12 object-contain"
+                          />
+                        ) : (
+                          project.icon
+                        )}
                       </motion.div>
                       <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors duration-300">
                         {project.title}
