@@ -21,7 +21,8 @@ const ModernProjects = () => {
       icon: <Database className="h-8 w-8" />,
       customIcon: medicareIcon,
       gradient: "from-primary to-secondary",
-      delay: 0
+      delay: 0,
+      url: "#"
     },
     {
       title: "AWS Serverless Web Application",
@@ -36,7 +37,8 @@ const ModernProjects = () => {
       icon: <Code className="h-8 w-8" />,
       customIcon: awsServerlessIcon,
       gradient: "from-accent to-primary",
-      delay: 200
+      delay: 200,
+      url: "#"
     },
     {
       title: "3-Tier Architecture on AWS",
@@ -51,7 +53,8 @@ const ModernProjects = () => {
       icon: <Cloud className="h-8 w-8" />,
       customIcon: aws3TierIcon,
       gradient: "from-secondary to-accent",
-      delay: 400
+      delay: 400,
+      url: "#"
     }
   ];
 
@@ -150,6 +153,34 @@ const ModernProjects = () => {
                           </span>
                         ))}
                       </div>
+                    </div>
+
+                    {/* View Project Button */}
+                    <div className="text-center pt-4">
+                      <Button
+                        asChild
+                        className="rounded-lg px-6 py-2 font-semibold transition-all duration-300 hover:scale-105"
+                        style={{
+                          backgroundColor: '#E57E2E',
+                          color: '#FFFFFF'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = '#4DA3FF';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = '#E57E2E';
+                        }}
+                      >
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2"
+                        >
+                          View Project
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
