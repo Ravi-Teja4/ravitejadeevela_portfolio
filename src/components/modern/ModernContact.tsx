@@ -71,8 +71,8 @@ const ModernContact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Card className="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" style={{ backgroundColor: '#E57E2E' }}>
-              <CardHeader className="pb-6" style={{ backgroundColor: '#E57E2E' }}>
+            <Card className="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" style={{ backgroundColor: '#4DA3FF' }}>
+              <CardHeader className="pb-6" style={{ backgroundColor: '#4DA3FF' }}>
                 <div className="flex items-center gap-3 mb-4">
                   <motion.div 
                     className="p-3 rounded-2xl"
@@ -132,7 +132,7 @@ const ModernContact = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <motion.div whileHover={{ scale: 1.03, y: -4 }}>
-                <Card className="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden" style={{ backgroundColor: '#E57E2E' }}>
+                <Card className="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden" style={{ backgroundColor: '#4DA3FF' }}>
                   <CardContent className="p-8 text-center">
                     <motion.div 
                       className="inline-flex p-4 rounded-2xl mb-4"
@@ -164,7 +164,7 @@ const ModernContact = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               <motion.div whileHover={{ scale: 1.03, y: -4 }}>
-                <Card className="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden" style={{ backgroundColor: '#E57E2E' }}>
+                <Card className="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden" style={{ backgroundColor: '#4DA3FF' }}>
                   <CardContent className="p-8 text-center">
                     <motion.div 
                       className="inline-flex p-4 rounded-2xl mb-4"
@@ -199,7 +199,7 @@ const ModernContact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <Card className="max-w-2xl mx-auto p-8 rounded-2xl shadow-lg" style={{ backgroundColor: '#E57E2E' }}>
+          <Card className="max-w-2xl mx-auto p-8 rounded-2xl shadow-lg" style={{ backgroundColor: '#4DA3FF' }}>
             <div className="flex items-center justify-center gap-4 mb-4">
               <motion.div
                 animate={{ y: [0, -5, 0] }}
