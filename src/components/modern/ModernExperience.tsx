@@ -48,7 +48,7 @@ const ModernExperience = () => {
         </div>
 
         {/* Experience Timeline */}
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative mx-auto flex flex-col items-start px-6" style={{ maxWidth: '1200px' }}>
           {/* Timeline line - hidden on mobile */}
           <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-accent transform -translate-x-1/2"></div>
 
