@@ -80,8 +80,8 @@ const ModernHero = () => {
                   className="bg-primary text-primary-foreground font-bold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-glow transition-all duration-300 group"
                   onClick={() => scrollToSection('projects')}
                 >
-                  <Mail className="mr-2 h-5 w-5" />
                   Explore My Work
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

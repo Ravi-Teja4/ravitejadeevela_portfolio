@@ -18,25 +18,29 @@ const ModernContact = () => {
       icon: <Mail className="h-6 w-6" />,
       label: "Email",
       value: "deevelaraviteja@gmail.com",
-      href: "mailto:deevelaraviteja@gmail.com"
-    },
-    {
-      icon: <Github className="h-6 w-6" />,
-      label: "GitHub",
-      value: "https://github.com/ravitejadeevela",
-      href: "https://github.com/ravitejadeevela"
-    },
-    {
-      icon: <Linkedin className="h-6 w-6" />,
-      label: "LinkedIn",
-      value: "https://www.linkedin.com/in/ravitejadeevela",
-      href: "https://www.linkedin.com/in/ravitejadeevela"
+      href: "mailto:deevelaraviteja@gmail.com",
+      color: "text-primary"
     },
     {
       icon: <Phone className="h-6 w-6" />,
       label: "Phone",
       value: "+91 6303275377",
-      href: "tel:+916303275377"
+      href: "tel:+916303275377",
+      color: "text-secondary"
+    },
+    {
+      icon: <Linkedin className="h-6 w-6" />,
+      label: "LinkedIn",
+      value: "ravi-teja-deevela",
+      href: "https://linkedin.com/in/ravi-teja-deevela",
+      color: "text-primary"
+    },
+    {
+      icon: <Github className="h-6 w-6" />,
+      label: "GitHub",
+      value: "Ravi-Teja4",
+      href: "https://github.com/Ravi-Teja4",
+      color: "text-accent"
     }
   ];
 
@@ -67,8 +71,8 @@ const ModernContact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Card className="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" style={{ backgroundColor: '#00008B' }}>
-              <CardHeader className="pb-6" style={{ backgroundColor: '#00008B' }}>
+            <Card className="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" style={{ backgroundColor: '#E57E2E' }}>
+              <CardHeader className="pb-6" style={{ backgroundColor: '#E57E2E' }}>
                 <div className="flex items-center gap-3 mb-4">
                   <motion.div 
                     className="p-3 rounded-2xl"
@@ -85,7 +89,7 @@ const ModernContact = () => {
                 </p>
               </CardHeader>
               
-              <CardContent className="space-y-6 p-8">
+              <CardContent className="space-y-4 p-8">
                 {contactInfo.map((contact, index) => (
                   <motion.div 
                     key={index}
@@ -98,17 +102,20 @@ const ModernContact = () => {
                       href={contact.href}
                       target={contact.href.startsWith('http') ? '_blank' : undefined}
                       rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="flex items-center gap-4 transition-all duration-250 group no-underline hover:underline"
-                      whileHover={{ x: 4 }}
+                      className="flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 group"
+                      style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
+                      whileHover={{ scale: 1.02, x: 4 }}
                     >
-                      <div className="text-white group-hover:text-[#4DA3FF] transition-colors duration-250">
+                      <div className="text-white group-hover:scale-110 transition-transform duration-300">
                         {contact.icon}
                       </div>
                       <div className="flex-1">
-                        <div className="text-white group-hover:text-[#4DA3FF] transition-colors duration-250">
+                        <div className="font-bold text-white text-sm">{contact.label}</div>
+                        <div className="text-white">
                           {contact.value}
                         </div>
                       </div>
+                      <ExternalLink className="h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </motion.a>
                   </motion.div>
                 ))}
@@ -125,7 +132,7 @@ const ModernContact = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <motion.div whileHover={{ scale: 1.03, y: -4 }}>
-                <Card className="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden" style={{ backgroundColor: '#00008B' }}>
+                <Card className="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden" style={{ backgroundColor: '#E57E2E' }}>
                   <CardContent className="p-8 text-center">
                     <motion.div 
                       className="inline-flex p-4 rounded-2xl mb-4"
@@ -157,7 +164,7 @@ const ModernContact = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               <motion.div whileHover={{ scale: 1.03, y: -4 }}>
-                <Card className="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden" style={{ backgroundColor: '#00008B' }}>
+                <Card className="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden" style={{ backgroundColor: '#E57E2E' }}>
                   <CardContent className="p-8 text-center">
                     <motion.div 
                       className="inline-flex p-4 rounded-2xl mb-4"
@@ -192,7 +199,7 @@ const ModernContact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <Card className="max-w-2xl mx-auto p-8 rounded-2xl shadow-lg" style={{ backgroundColor: '#00008B' }}>
+          <Card className="max-w-2xl mx-auto p-8 rounded-2xl shadow-lg" style={{ backgroundColor: '#E57E2E' }}>
             <div className="flex items-center justify-center gap-4 mb-4">
               <motion.div
                 animate={{ y: [0, -5, 0] }}
