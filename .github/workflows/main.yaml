@@ -57,7 +57,7 @@ jobs:
 
       # ✅ Step 8: Push Image to ECR
       - name: Push to ECR
-        run: docker push 552174866194.dkr.ecr.us-west-1.amazonaws.com/my-react-portfolio:$IMAGE_TAG
+        run: docker push 552174866194.dkr.ecr.us-west-1.amazonaws.com/portfolio:$IMAGE_TAG
 
 
       # ✅ Step 9: Print Image URL
@@ -94,4 +94,5 @@ jobs:
               ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-west-1.amazonaws.com/my-react-portfolio:latest
 
             echo "✅ Deployment Done!"
+
 
