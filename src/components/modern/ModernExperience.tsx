@@ -42,7 +42,7 @@ const ModernExperience = () => {
             Professional Experience
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-white max-w-2xl mx-auto">
             Hands-on experience in cloud infrastructure, automation, and DevOps practices
           </p>
         </div>

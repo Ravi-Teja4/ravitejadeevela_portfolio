@@ -129,7 +129,7 @@ const ModernSkills = () => {
             Technologies
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8"></div>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-white max-w-3xl mx-auto">
             Expertise across cloud platforms, infrastructure automation, and modern development practices
           </p>
         </div>

@@ -41,16 +41,16 @@ const ModernAbout = () => {
           {/* Bio Text - Left-slide animation */}
           <div data-aos="fade-right" data-aos-delay="200" className="space-y-6">
             <div className="prose prose-lg max-w-none">
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-white leading-relaxed">
                 I'm an enthusiastic and detail-oriented AWS Cloud & DevOps enthusiast with hands-on experience gained through academic projects, a professional internship, and freelance work.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-white leading-relaxed">
                 I specialize in AWS services such as EC2, S3, RDS, Lambda, CloudFront, Route 53, and AWS Machine Learning tools like Rekognition, Comprehend, Textract, Lex, and Transcribe.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-white leading-relaxed">
                 Skilled in Infrastructure as Code (IaC) using Terraform, CI/CD automation with GitHub Actions, containerization with Docker and Kubernetes, and serverless deployments.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-white leading-relaxed">
                 I'm passionate about automation, cloud security, and observability, with a strong foundation in Linux administration and database management.
               </p>
             </div>

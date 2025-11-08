@@ -58,7 +58,7 @@ const ModernContact = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Let's Connect
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-white max-w-2xl mx-auto">
             Ready to discuss your next cloud project? Let's build something amazing together.
           </p>
         </motion.div>

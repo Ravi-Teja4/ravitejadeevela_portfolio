@@ -63,7 +63,7 @@ const ModernHero = () => {
               <p className="text-2xl lg:text-3xl text-white font-bold mb-4">
                 AWS Cloud & DevOps Enthusiast
               </p>
-              <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
+              <p className="text-lg text-white max-w-2xl leading-relaxed">
                 Building scalable, secure, and automated cloud solutions using AWS, Terraform, Docker, and Linux.
               </p>
             </motion.div>
