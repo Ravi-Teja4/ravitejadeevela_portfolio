@@ -92,7 +92,7 @@ const ModernProjects = () => {
                 whileHover={{ scale: 1.05, y: -8 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="h-full hover:shadow-glow transition-all duration-500 overflow-hidden border-2 border-border relative group" style={{ backgroundColor: '#E57E2E' }}>
+                <Card className="h-full hover:shadow-glow transition-all duration-500 overflow-hidden border-2 border-border relative group bg-card">
                   {/* Removed gradient overlay for solid dark theme */}
                   
                   <CardHeader className="relative z-10 pb-4">
@@ -112,7 +112,7 @@ const ModernProjects = () => {
                           project.icon
                         )}
                       </motion.div>
-                      <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-card-foreground group-hover:text-accent transition-colors duration-300">
                         {project.title}
                       </h3>
                     </div>
@@ -125,7 +125,7 @@ const ModernProjects = () => {
                   <CardContent className="relative z-10 pt-0">
                     {/* Key Features */}
                     <div className="mb-6">
-                      <h4 className="font-semibold text-foreground mb-3 text-sm">Key Features:</h4>
+                      <h4 className="font-semibold text-card-foreground mb-3 text-sm">Key Features:</h4>
                       <ul className="space-y-2">
                         {project.features.map((feature, idx) => (
                           <li key={idx} className="flex items-start gap-3">
@@ -138,16 +138,12 @@ const ModernProjects = () => {
 
                     {/* Technologies */}
                     <div className="mb-6">
-                      <h4 className="font-semibold text-foreground mb-3 text-sm">Technologies:</h4>
+                      <h4 className="font-semibold text-card-foreground mb-3 text-sm">Technologies:</h4>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, idx) => (
                           <span
                             key={idx}
-                            className="px-3 py-1 text-xs font-medium rounded-full transition-all duration-300"
-                            style={{
-                              backgroundColor: '#4DA3FF',
-                              color: '#FFFFFF'
-                            }}
+                            className="px-3 py-1 text-xs font-medium rounded-full transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary-light"
                           >
                             {tech}
                           </span>
@@ -159,17 +155,7 @@ const ModernProjects = () => {
                     <div className="text-center pt-4">
                       <Button
                         asChild
-                        className="rounded-lg px-6 py-2 font-semibold transition-all duration-300 hover:scale-105"
-                        style={{
-                          backgroundColor: '#E57E2E',
-                          color: '#FFFFFF'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = '#4DA3FF';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = '#E57E2E';
-                        }}
+                        className="rounded-lg px-6 py-2 font-semibold transition-all duration-300 hover:scale-105 bg-primary hover:bg-primary-light text-primary-foreground"
                       >
                         <a
                           href={project.url}

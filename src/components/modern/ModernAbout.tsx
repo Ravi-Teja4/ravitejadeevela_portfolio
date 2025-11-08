@@ -76,14 +76,14 @@ const ModernAbout = () => {
                   <div className="absolute left-4 top-6 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-md z-10"></div>
                   
                   {/* Education card */}
-                  <Card className="ml-16 hover:shadow-lg transition-all duration-300 border-l-4 border-l-primary" style={{ backgroundColor: '#E57E2E' }}>
+                  <Card className="ml-16 hover:shadow-lg transition-all duration-300 border-l-4 border-l-primary bg-card">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
                         <div className="p-2 bg-primary/10 rounded-lg text-primary">
                           {edu.icon}
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-semibold text-foreground text-lg mb-2">
+                          <h4 className="font-semibold text-card-foreground text-lg mb-2">
                             {edu.degree}
                           </h4>
                           <p className="text-primary font-medium mb-1">

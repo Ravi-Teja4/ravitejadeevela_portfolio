@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 @import 'aos/dist/aos.css';
 
 @tailwind base;
@@ -16,12 +16,12 @@ High-Contrast Dark Theme: Royal Purple (#4F46E5), Bold Orange (#FF6B00), Neon Gr
     --background: 240 100% 27%;
     --foreground: 0 0% 100%;
 
-    /* Orange Card Background */
-    --card: 27 78% 53%;
-    --card-foreground: 0 0% 100%;
+    /* White Card Background */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
 
-    --popover: 27 78% 53%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
 
     /* Blue Primary for Hover/Active */
     --primary: 217 91% 60%;
@@ -29,30 +29,30 @@ High-Contrast Dark Theme: Royal Purple (#4F46E5), Bold Orange (#FF6B00), Neon Gr
     --primary-light: 217 91% 70%;
     --primary-dark: 217 91% 50%;
 
-    /* Orange Secondary */
-    --secondary: 27 78% 53%;
-    --secondary-foreground: 0 0% 100%;
+    /* White Secondary */
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 13%;
 
-    /* Muted Text - Light Cream */
-    --muted: 27 78% 53%;
-    --muted-foreground: 30 100% 94%;
+    /* Muted Text - Dark Gray */
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 25%;
 
-    /* Light Orange Accent */
-    --accent: 30 100% 73%;
-    --accent-foreground: 240 100% 27%;
+    /* Light Blue Accent */
+    --accent: 217 91% 70%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 100% 73%;
-    --input: 27 78% 53%;
+    --border: 0 0% 90%;
+    --input: 0 0% 95%;
     --ring: 217 91% 60%;
 
     /* Solid Color System - No Gradients */
     --gradient-primary: hsl(217 91% 60%);
-    --gradient-secondary: hsl(27 78% 53%);
+    --gradient-secondary: hsl(0 0% 100%);
     --gradient-hero: hsl(240 100% 27%);
-    --gradient-card: hsl(27 78% 53%);
+    --gradient-card: hsl(0 0% 100%);
     
     /* Shadows with Updated Accent Colors */
     --shadow-soft: 0 2px 12px hsl(0 0% 0% / 0.4);
@@ -90,29 +90,29 @@ High-Contrast Dark Theme: Royal Purple (#4F46E5), Bold Orange (#FF6B00), Neon Gr
     --background: 240 100% 27%;
     --foreground: 0 0% 100%;
 
-    --card: 27 78% 53%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
 
-    --popover: 27 78% 53%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
 
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 27 78% 53%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 13%;
 
-    --muted: 27 78% 53%;
-    --muted-foreground: 30 100% 94%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 25%;
 
-    --accent: 30 100% 73%;
-    --accent-foreground: 240 100% 27%;
+    --accent: 217 91% 70%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 100% 73%;
-    --input: 27 78% 53%;
+    --border: 0 0% 90%;
+    --input: 0 0% 95%;
     --ring: 217 91% 60%;
     --sidebar-background: 240 100% 27%;
     --sidebar-foreground: 0 0% 100%;
@@ -132,7 +132,8 @@ High-Contrast Dark Theme: Royal Purple (#4F46E5), Bold Orange (#FF6B00), Neon Gr
 
 body {
   @apply bg-background text-foreground;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -142,8 +143,8 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
   color: hsl(0 0% 100%);
 }
 
