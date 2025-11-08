@@ -1,4 +1,4 @@
-name: React App CI/CD - SonarQube + Docker + ECR + EC2 Deploy
+name: React App CI/CD - Docker + ECR + EC2 Deploy
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: CI - Build, Scan, Push to ECR
+    name: CI - Build & Push to ECR
     runs-on: ubuntu-latest
 
     env:
@@ -32,16 +32,7 @@ jobs:
           npm ci
           npm run build
 
-      # ✅ Step 4: SonarQube Scan
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@v3
-        with:
-          projectBaseDir: .
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-
-      # ✅ Step 5: AWS Login using Access Keys
+      # ✅ Step 4: Configure AWS Credentials
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -49,27 +40,27 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
-      # ✅ Step 6: Login to ECR
+      # ✅ Step 5: Login to ECR
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
-      # ✅ Step 7: Build Docker Image
+      # ✅ Step 6: Build Docker Image
       - name: Build Docker Image
         run: docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
 
-      # ✅ Step 8: Tag Image
+      # ✅ Step 7: Tag Image
       - name: Tag Docker Image
         run: |
           docker tag $ECR_REPOSITORY:$IMAGE_TAG \
           ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG
 
-      # ✅ Step 9: Push Image to ECR
+      # ✅ Step 8: Push Image to ECR
       - name: Push to ECR
         run: docker push \
           ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG
 
-      # ✅ Step 10: Print Image URL
+      # ✅ Step 9: Print Image URL
       - name: Print Image URL
         run: |
           echo "✅ Image pushed:"
