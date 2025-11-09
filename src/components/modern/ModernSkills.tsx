@@ -159,7 +159,7 @@ const ModernSkills = () => {
                       {category.icon}
                     </div>
                   )}
-                  <h3 className="font-bold text-foreground text-lg group-hover:text-primary transition-colors duration-300">
+                  <h3 className="font-bold text-white text-xl group-hover:text-primary transition-colors duration-300">
                     {category.title}
                   </h3>
                 </div>
