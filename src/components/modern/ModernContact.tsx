@@ -11,6 +11,7 @@ import {
   ExternalLink,
   Send
 } from 'lucide-react';
+import ContactForm from './ContactForm';
 
 const ModernContact = () => {
   const contactInfo = [
@@ -63,15 +64,26 @@ const ModernContact = () => {
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          {/* Glassmorphism Contact Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <Card className="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 mb-8">
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <ContactForm />
+            </motion.div>
+
+            {/* Contact Information Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <Card className="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-white h-full">
               <CardHeader className="pb-6 bg-white">
                 <div className="flex items-center gap-3 mb-4">
                   <motion.div 
@@ -119,7 +131,8 @@ const ModernContact = () => {
                 ))}
               </CardContent>
             </Card>
-          </motion.div>
+            </motion.div>
+          </div>
 
           {/* Quick Actions */}
           <div className="grid md:grid-cols-2 gap-6 mt-8">
