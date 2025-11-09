@@ -1,23 +1,19 @@
 # Stage 1: Build React app
-FROM node:18.18.1-alpine3.22 AS build
+FROM node:18-alpine AS build
 
 WORKDIR /app
 
-# Install dependencies
 COPY package*.json ./
 RUN npm ci --audit=false
 
-# Copy source and build
 COPY . .
 RUN npm run build
 
-# Stage 2: Serve with Nginx (minimal and secure)
+# Stage 2: Serve with Nginx (minimal, secure)
 FROM nginx:stable-alpine
 
-# Update Alpine packages
 RUN apk update && apk upgrade --no-cache && rm -rf /var/cache/apk/*
 
-# Copy React build
 COPY --from=build /app/dist /usr/share/nginx/html
 
 # React routing fix
