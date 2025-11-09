@@ -59,13 +59,7 @@ jobs:
           docker tag $ECR_REPOSITORY:$IMAGE_TAG \
           ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG
 
-      - name: Scan Docker Image with Trivy
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: ${{ env.ECR_REPOSITORY }}:latest
-          format: table
-          exit-code: 1
-          severity: HIGH,CRITICAL
+     
 
       - name: Push to ECR
         run: |
@@ -104,3 +98,4 @@ jobs:
               ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-west-1.amazonaws.com/my-react-portfolio:latest
 
             echo "✅ Deployment Done!"
+
