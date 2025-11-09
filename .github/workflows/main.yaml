@@ -1,4 +1,4 @@
-name: React App CI/CD - Docker + ECR + EC2 Deploy
+name: React App CI/CD - SonarQube + Docker + ECR + EC2 Deploy
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: CI - Build & Push to ECR
+    name: CI - Build, Scan & Push to ECR
     runs-on: ubuntu-latest
 
     env:
@@ -16,23 +16,28 @@ jobs:
       IMAGE_TAG: latest
 
     steps:
-      # ✅ Step 1: Checkout code
       - name: Checkout
         uses: actions/checkout@v4
 
-      # ✅ Step 2: Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # ✅ Step 3: Install and Build React app
       - name: Install & Build
         run: |
           npm ci
           npm run build
 
-      # ✅ Step 4: Configure AWS Credentials
+      # ✅ SonarQube Scan
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v3
+        with:
+          projectBaseDir: .
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -40,28 +45,21 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
-      # ✅ Step 5: Login to ECR
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
-      # ✅ Step 6: Build Docker Image
       - name: Build Docker Image
         run: docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
 
-      # ✅ Step 7: Tag Image
       - name: Tag Docker Image
         run: |
           docker tag $ECR_REPOSITORY:$IMAGE_TAG \
           ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG
 
-      # ✅ Step 8: Push Image to ECR
       - name: Push to ECR
         run: docker push 552174866194.dkr.ecr.us-west-1.amazonaws.com/my-react-portfolio:$IMAGE_TAG
 
-
-
-      # ✅ Step 9: Print Image URL
       - name: Print Image URL
         run: |
           echo "✅ Image pushed:"
@@ -95,6 +93,3 @@ jobs:
               ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-west-1.amazonaws.com/my-react-portfolio:latest
 
             echo "✅ Deployment Done!"
-
-
-
