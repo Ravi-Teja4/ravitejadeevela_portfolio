@@ -1,4 +1,4 @@
-name: React App CI/CD - SonarQube + Docker + Trivy + ECR + EC2 Deploy
+name: React App CI/CD - Docker + Trivy + ECR + EC2
 
 on:
   push:
@@ -29,17 +29,6 @@ jobs:
           npm ci
           npm run build
 
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@v3
-        with:
-          projectBaseDir: .
-          args: >
-            -Dsonar.projectKey=my-react-portfolio
-            -Dsonar.projectName="my-react-portfolio"
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -60,12 +49,13 @@ jobs:
           ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG
 
       - name: Scan Docker Image with Trivy
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@v0.16.0
         with:
           image-ref: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG
           format: table
           exit-code: 1
           severity: HIGH,CRITICAL
+          cache-dir: ${{ github.workspace }}/.trivycache
 
       - name: Push to ECR
         run: |
