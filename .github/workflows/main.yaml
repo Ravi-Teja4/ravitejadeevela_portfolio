@@ -16,28 +16,35 @@ jobs:
       IMAGE_TAG: latest
 
     steps:
+      # Step 1: Checkout code
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Step 2: Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
+      # Step 3: Install dependencies & build React app
       - name: Install & Build
         run: |
           npm ci
           npm run build
 
-      # ✅ SonarQube Scan
+      # Step 4: SonarQube Scan
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@v3
         with:
           projectBaseDir: .
+          args: >
+            -Dsonar.projectKey=my-react-portfolio
+            -Dsonar.projectName="My React Portfolio"
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
+      # Step 5: Configure AWS Credentials
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -45,21 +52,27 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
+      # Step 6: Login to Amazon ECR
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
+      # Step 7: Build Docker Image
       - name: Build Docker Image
         run: docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
 
+      # Step 8: Tag Docker Image
       - name: Tag Docker Image
         run: |
           docker tag $ECR_REPOSITORY:$IMAGE_TAG \
           ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG
 
+      # Step 9: Push Image to ECR
       - name: Push to ECR
-        run: docker push 552174866194.dkr.ecr.us-west-1.amazonaws.com/my-react-portfolio:$IMAGE_TAG
+        run: |
+          docker push ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:$IMAGE_TAG
 
+      # Step 10: Print Image URL
       - name: Print Image URL
         run: |
           echo "✅ Image pushed:"
