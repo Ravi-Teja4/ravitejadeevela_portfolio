@@ -39,7 +39,7 @@ jobs:
           projectBaseDir: .
           args: >
             -Dsonar.projectKey=my-react-portfolio
-            -Dsonar.projectName="My React Portfolio"
+            -Dsonar.projectName="my-react-portfolio"
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
@@ -106,3 +106,4 @@ jobs:
               ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-west-1.amazonaws.com/my-react-portfolio:latest
 
             echo "✅ Deployment Done!"
+
