@@ -74,7 +74,7 @@ const ContactForm = () => {
       <CardContent className="p-8">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+            <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
               Name
             </label>
             <Input
@@ -90,7 +90,7 @@ const ContactForm = () => {
           </div>
 
           <div>
-            <label htmlFor="mobile_number" className="block text-sm font-medium text-foreground mb-2">
+            <label htmlFor="mobile_number" className="block text-sm font-medium text-white mb-2">
               Mobile Number
             </label>
             <Input
@@ -106,7 +106,7 @@ const ContactForm = () => {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+            <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
               Message
             </label>
             <Textarea
