@@ -72,6 +72,7 @@ const ContactForm = () => {
   return (
     <Card className="rounded-2xl shadow-lg bg-white">
       <CardContent className="p-8">
+        <h2 className="text-2xl font-bold text-foreground mb-6">Contact Form</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-blue-400 mb-2">
